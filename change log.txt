@@ -1,0 +1,12 @@
+Cambios al Prototipo (despues se pasara lo hecho al proyecto real)
+30/8/2026
+- Se creo el proyecto.
+- se inicio el desarrollo del primer prototipo del proyecto.
+- Se logro hacer que el prototipo buscara por ID Estudiantil y ubicara correctamente toda la informacion del usuario.
+Quedaria hacer que haya un valor booleano que permita marcar su asistencia como TRUE cuando se registra (Por defecto empezaria en FALSE)
+
+31/8/2026
+- Se agregaron los controles para Ocultar y Mostrar ciertas secciones del proyecto dependiendo de lo que seleccione el usuario al inicio.
+- Se agrego un valor booleano a la informacion del estudiante para marcar como TRUE o FALSE si ingreso o no.
+- Se agrego la seccion para que el Docente pueda iniciar sesion.
+Lo siguiente seria hacer el Inicio de Sesion del docente, junto con una opcion para regresar al Menu.

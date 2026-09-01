@@ -1,0 +1,37 @@
+*{
+    background: rgb(53, 53, 53);
+}
+
+head{
+    color: red;
+}
+
+body {
+    color: white;
+    margin: 0px auto;
+    text-align: center;
+}
+
+button {
+    background: white;
+    color: black;
+    margin: 0px auto;
+    text-align: center;
+}
+
+input {
+    background:white;
+    font-family: VCR Mono;
+}
+
+.oculto{
+    display:none;
+}
+
+select {
+    background: white;
+}
+
+option {
+    background: white;
+}
