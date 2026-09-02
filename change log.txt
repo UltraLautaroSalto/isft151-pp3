@@ -10,3 +10,8 @@ Quedaria hacer que haya un valor booleano que permita marcar su asistencia como 
 - Se agrego un valor booleano a la informacion del estudiante para marcar como TRUE o FALSE si ingreso o no.
 - Se agrego la seccion para que el Docente pueda iniciar sesion.
 Lo siguiente seria hacer el Inicio de Sesion del docente, junto con una opcion para regresar al Menu.
+
+2/9/2026
+- Se arreglo un problema por el cual estaba mal implementado la funcion de ocultar las secciones de Inicio de Sesion (Esto afectaba tanto a Estudiantes como Docentes)
+- Se implemento un Boton para volver al menu principal (Lo ultimo por hacerle al prototipo seria hacer que dicho boton sepa cual fue la seccion anterior, porque de momento solo te manda a la pagina principal directamente)
+- Se agrego para que tambien se pueda iniciar sesion por el Nombre y ID del estudiante (Antes solo requeria del ID)

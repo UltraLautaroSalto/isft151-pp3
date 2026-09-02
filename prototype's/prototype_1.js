@@ -18,11 +18,11 @@ const MostrarInicioSecionDocente = document.getElementById("Boton_Ingreso_Docent
 const IniciodeSesion_Estudiante = document.getElementById("IniciodeSesion_Estudiante_2"); // Seccion donde ocurre el Inicio de Sesion del Estudiante
 const IniciodeSesion_Docente = document.getElementById("IniciodeSesion_Docente_2"); // Seccion donde ocurre el Inicio de Sesion del Docente
 
-const NM_Estudiantil = document.getElementById("NM_Estudiantil"); // Constante que almacena el Nombre del Estudiante Ingresado
+const NM_Estudiante = document.getElementById("NM_Estudiante"); // Constante que almacena el Nombre del Estudiante Ingresado
 const ID_Estudiantil = document.getElementById("ID_Estudiantil"); // Constante que almacena el ID del Estudiante ingresado
 
-const NM_Docente = document.getElementById("Nombre_Docente"); // Constante que almacena el Nombre del Docente
-const CDG_Docente = document.getElementById("Codigo_Docente"); // Constante que almacena la Contraseña del Docente
+const NM_Docente = document.getElementById("NM_Docente"); // Constante que almacena el Nombre del Docente
+const CDG_Docente = document.getElementById("CDG_Docente"); // Constante que almacena la Contraseña del Docente
 
 const Boton_Alumno = document.getElementById("IniciarSesion_Alumno"); // Boton que confirma el ID del Estudiante y le da la Bienvenida en caso de aprobarlo
 const Boton_Docente = document.getElementById("IniciarSesion_Docente"); // Boton que permite al docente de turno iniciar secion siempre y cuando su contraseña y nombre concuerden
@@ -54,15 +54,20 @@ MostrarInicioSecionDocente.addEventListener("click", () => {
 
 // Funcion del Boton para confirmar el Inicio de Sesion del Usuario Estudiante
 Boton_Alumno.addEventListener("click", () => {
+    const ALM_nombre = NM_Estudiante.value;
     const ID_alm = ID_Estudiantil.value;
-    const ALM_nombre = NM_Estudiantil.value;
+
+    if(ALM_nombre.trim() === ""){
+        alert("El Nombre Ingresado no es valido, porfavor vuelva a intentarlo");
+        return;
+    }
 
     if(ID_alm.trim() === ""){
         alert("El ID Ingresado no es valido, porfavor vuelva a intentarlo");
         return;
     }
 
-    const Identificar_alm = Estudiantes_Registrados.find(p => p.ID_Estudiantil === ALM_nombre,p => p.ID_Estudiantil === ID_alm);
+    const Identificar_alm = Estudiantes_Registrados.find(p => p.nombre === ALM_nombre,p => p.ID_Estudiantil === ID_alm);
 
     if(!Identificar_alm){
         alert("ERROR: La contraseña o Nombre Ingresados Ingresada es incorrecta, vuelva a intentarlo");
