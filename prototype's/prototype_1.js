@@ -15,28 +15,31 @@ const Pagina_Inicial = document.getElementById("PaginaInicial"); // La primera p
 const MostrarInicioSecionEstudiante = document.getElementById("Boton_Ingreso_Estudiante_1"); //Funcion que controla la visibilidad de "IniciodeSesion_Estudiante"
 const MostrarInicioSecionDocente = document.getElementById("Boton_Ingreso_Docente_1"); //Funcion que controla la visibilidad de "InicioSecion_Docente"
 
-const IniciodeSesion_Estudiante = document.getElementById("IniciodeSesion_Estudiante_2"); // Muestra la Seccion de Inicio de Sesion del Estudiante
-const IniciodeSesion_Docente = document.getElementById("IniciodeSesion_Docente_2"); // Muestra la seccion de Inicio de Sesion del Docente
+const IniciodeSesion_Estudiante = document.getElementById("IniciodeSesion_Estudiante_2"); // Seccion donde ocurre el Inicio de Sesion del Estudiante
+const IniciodeSesion_Docente = document.getElementById("IniciodeSesion_Docente_2"); // Seccion donde ocurre el Inicio de Sesion del Docente
 
+const NM_Estudiantil = document.getElementById("NM_Estudiantil"); // Constante que almacena el Nombre del Estudiante Ingresado
 const ID_Estudiantil = document.getElementById("ID_Estudiantil"); // Constante que almacena el ID del Estudiante ingresado
 
-const NOMBRE_Docente = document.getElementById("Nombre_Docente"); // Constante que almacena el Nombre del Docente
-const CODIGO_Docente = document.getElementById("Codigo_Docente"); // Constante que almacena la Contraseña del Docente
+const NM_Docente = document.getElementById("Nombre_Docente"); // Constante que almacena el Nombre del Docente
+const CDG_Docente = document.getElementById("Codigo_Docente"); // Constante que almacena la Contraseña del Docente
 
 const Boton_Alumno = document.getElementById("IniciarSesion_Alumno"); // Boton que confirma el ID del Estudiante y le da la Bienvenida en caso de aprobarlo
 const Boton_Docente = document.getElementById("IniciarSesion_Docente"); // Boton que permite al docente de turno iniciar secion siempre y cuando su contraseña y nombre concuerden
 
+const Boton_Volver = document.querySelectorAll(".Opcion_Volver"); // Funcion que controla el volver a la pagina anterior
+
 function OcultarTodo() {
     Pagina_Inicial.classList.add("oculto");
-    MostrarInicioSecionEstudiante.classList.add("oculto");
-    MostrarInicioSecionDocente.classList.add("oculto");
+    IniciodeSesion_Estudiante.classList.add("oculto");
+    IniciodeSesion_Docente.classList.add("oculto");
 }
 
-// De momento esto no cumple ninguna funcion
-/* function MostrarSeccion(section){
+// Funcion para volver a la pagina de Inicio (Nota: Lo proximo que tengo que hacer es arreglar esto para que siempre vuelva a la pagina anterior en lugar de al inicio)
+function MostrarSeccion(section){
     OcultarTodo();
     section.classList.remove("oculto");
-} */
+}
 
 // Funcion para Mostrar el Inicio de Sesion del Estudiante
 MostrarInicioSecionEstudiante.addEventListener("click", () => {
@@ -52,7 +55,7 @@ MostrarInicioSecionDocente.addEventListener("click", () => {
 // Funcion del Boton para confirmar el Inicio de Sesion del Usuario Estudiante
 Boton_Alumno.addEventListener("click", () => {
     const ID_alm = ID_Estudiantil.value;
-    const ALM_nombre = Nombre_Estudiantil.value;
+    const ALM_nombre = NM_Estudiantil.value;
 
     if(ID_alm.trim() === ""){
         alert("El ID Ingresado no es valido, porfavor vuelva a intentarlo");
@@ -69,15 +72,12 @@ Boton_Alumno.addEventListener("click", () => {
     Identificar_alm.Asistencia = "TRUE";
 
     MensajeIdentidadConfirmadaALM.innerText = `USUARIO IDENTIFICADO\n Bienvenido: ${Identificar_alm.nombre} ${Identificar_alm.apellido}`; // Mensaje que sale cuando la identidad del usuario es confirmada
-    MensajeInformacionAdicionalALM.innerText = `Edad: ${Identificar_alm.edad} \nGenero: ${Identificar_alm.genero} \nID_Estudiantil: ${Identificar_alm.ID_Estudiantil} \nEstado de Asistencia: ${Identificar_alm.Asistencia}`; // Informacion adicional sobre el alumno ingresado
 });
 
 // Funcion del Boton para confirmar el Inicio de Sesion del Usuario Docente
 Boton_Docente.addEventListener("click", () => {
-    const nom_docente = NOMBRE_Docente.value; // parece que aqui hay un problema por el cual no puede recibir valores de tipo texto, resolverlo mañana
-    console.log(nom_docente);
-    const cod_docente = CODIGO_Docente.value;
-    console.log(cod_docente);
+    const nom_docente = NM_Docente.value;
+    const cod_docente = CDG_Docente.value;
 
     if(nom_docente.trim() === ""){
         alert("Porfavor ingrese el nombre del docente");
@@ -96,4 +96,11 @@ Boton_Docente.addEventListener("click", () => {
     }
 
     MensajeIdentidadConfirmadaDOC.innerText = `USUARIO IDENTIFICADO\n Bienvenido: ${Identificar_doc.nombre} ${Identificar_doc.apellido}`;
+});
+
+// Devuelve al Usuario a la Parte Anterior de la Pagina
+Boton_Volver.forEach(boton => {
+    boton.addEventListener("click", () => {
+        MostrarSeccion(Pagina_Inicial);
+    });
 });
