@@ -15,3 +15,11 @@ Lo siguiente seria hacer el Inicio de Sesion del docente, junto con una opcion p
 - Se arreglo un problema por el cual estaba mal implementado la funcion de ocultar las secciones de Inicio de Sesion (Esto afectaba tanto a Estudiantes como Docentes)
 - Se implemento un Boton para volver al menu principal (Lo ultimo por hacerle al prototipo seria hacer que dicho boton sepa cual fue la seccion anterior, porque de momento solo te manda a la pagina principal directamente)
 - Se agrego para que tambien se pueda iniciar sesion por el Nombre y ID del estudiante (Antes solo requeria del ID)
+
+6/9/2026
+- Se cambio para que el inicio de sesion sea universal en lugar de ser 1 por tipo de usuario.
+- Se agrego el rol Admin (de momento no hace nada, lo proximo seria agregar sus funciones).
+- Se agrego la seccion de la sesion del estudiante (proximamente se añadira las secciones de los otros tipos de usuario).
+- Se arreglo que el Boton de volver regrese a la pagina anterior en lugar de ir directamente a la pagina principal.
+- Tambien se arreglo el como se muestran y ocultan las paginas.
+- Se Modifico el como el backend reconoce al usuario (ahora solo necesita Nombre y contraseña del usuario, a diferencia de antes que variaban dichos requisitos por tipo de usuario).

@@ -11,30 +11,23 @@
             </head>
 
             <h2>SELECCIONE UNA OPCION</h2>
-                <button id="Boton_Ingreso_Estudiante_1">Estudiante</button>
-                <button id="Boton_Ingreso_Docente_1">Docente</button>
+                <button id="Boton_Iniciar_Sesion_Usuario">INICIAR SESION</button>
         </section>
 
-        <section id="IniciodeSesion_Estudiante_2" class="oculto">
-            <h2>Porfavor ingrese su informacion a continuacion:</h2>
-            <p>Ingrese su Nombre <input id="NM_Estudiante"></p>
-            <p>Ingrese su ID Estudiantil: <input type ="number" id="ID_Estudiantil"></p>
+        <section id="IniciarSesion" class="oculto">
+            <h2>Porfavor Ingrese su informacion a continuacion:</h2>
+            <p>INGRESE SU NOMBRE: <input id="NM_Usuario"></p>
+            <p>INGRESE SU CONTRASEÑA: <input id="CDG_Usuario"></p>
 
-            <p><button id="IniciarSesion_Alumno">Comprobar Identidad</button></p>
+            <p><button id="Boton_Confirmar_Usuario">INICIAR SESION</button></p>
+
             <p><li><button class="Opcion_Volver">VOLVER ATRAS</button></li></p>
-
-            <p id="MensajeIdentidadConfirmadaALM"></p>
+            <p id="MensajeIdentidadConfirmada"></p>
         </section>
 
-        <section id = "IniciodeSesion_Docente_2" class="oculto">
-            <br>
-            <p>Ingrese su Nombre y Contraseña</p>
-            <p>NOMBRE: <input type="text" id="NM_Docente"></p>
-            <p>CONTRASEÑA: <input type="text" id="CDG_Docente"></p>
-
-            <p><button id="IniciarSesion_Docente">CONFIRMAR</button></p>
+        <section id="Sesion_Estudiante" class="oculto">
+            <h2 id="MensajeBienvenida_Estudiante"></h2>
             <p><li><button class="Opcion_Volver">VOLVER ATRAS</button></li></p>
-            <p id="MensajeIdentidadConfirmadaDOC"></p>
         </section>
     </body>
 

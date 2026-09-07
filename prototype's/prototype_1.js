@@ -1,111 +1,119 @@
-let Estudiantes_Registrados = [
-    {nombre: "Jorge", apellido: "Torres", edad: "16", genero: "Masculino", ID_Estudiantil: "1234", Asistencia: "FALSE"},
-    {nombre: "Maria", apellido: "Gutierrez", edad: "15", genero: "Femenino", ID_Estudiantil: "4321", Asistencia: "FALSE"},
-    {nombre: "Alex", apellido: "Santos", edad: "17", genero: "Sin Identificar", ID_Estudiantil: "9999", Asistencia: "FALSE"}
-];
+let Cuentas_Registradas = [
+    {nombre: "Jorge", apellido: "Torres", edad: "16", genero: "Masculino", codigo_de_ingreso: "1234", rol: "Estudiante", Asistencia: "FALSE"},
+    {nombre: "Maria", apellido: "Gutierrez", edad: "15", genero: "Femenino", codigo_de_ingreso: "4321", rol: "Estudiante", Asistencia: "FALSE"},
+    {nombre: "Alex", apellido: "Santos", edad: "17", genero: "Sin Identificar", codigo_de_ingreso: "9999", rol: "Estudiante", Asistencia: "FALSE"},
 
-let Docentes_Registrados = [
-    {nombre: "Lance", apellido: "Vanze", edad:"34", genero: "Masculino", codigo_de_ingreso: "VanceLastDance9876"},
-    {nombre: "Denise", apellido: "Robinson", edad:"45", genero: "Femenino", codigo_de_ingreso: "CJMYLOVE6789"}
+    {nombre: "Lance", apellido: "Vanze", edad:"34", genero: "Masculino", codigo_de_ingreso: "VanceLastDance9876", rol: "Docente"},
+    {nombre: "Denise", apellido: "Robinson", edad:"45", genero: "Femenino", codigo_de_ingreso: "CJMYLOVE6789", rol: "Docente"},
+
+    {nombre: "Ralph", apellido: "Philips", edad:"53", genero: "Masculino", codigo_de_ingreso: "AM128894", rol: "Administrador"}
 ];
 
 const Cuerpo_Principal = document.getElementById("Cuerpo_Principal"); //Usar esto despues
 const Pagina_Inicial = document.getElementById("PaginaInicial"); // La primera pagina que se encuentra el usuario al entrar al proyecto
 
-const MostrarInicioSecionEstudiante = document.getElementById("Boton_Ingreso_Estudiante_1"); //Funcion que controla la visibilidad de "IniciodeSesion_Estudiante"
-const MostrarInicioSecionDocente = document.getElementById("Boton_Ingreso_Docente_1"); //Funcion que controla la visibilidad de "InicioSecion_Docente"
+const MostrarInicioSesionUsuario = document.getElementById("Boton_Iniciar_Sesion_Usuario") // Funcion para controlar la visibilidad de "IniciarSesion_Usuario"
+const TextoBienvenida_Estudiante = document.getElementById("MensajeBienvenida_Estudiante");
 
-const IniciodeSesion_Estudiante = document.getElementById("IniciodeSesion_Estudiante_2"); // Seccion donde ocurre el Inicio de Sesion del Estudiante
-const IniciodeSesion_Docente = document.getElementById("IniciodeSesion_Docente_2"); // Seccion donde ocurre el Inicio de Sesion del Docente
+const IniciarSesion_Usuario = document.getElementById("IniciarSesion") // Seccion donde ocurre el Inicio de Sesion del Usuario
+const Sesion_Estudiante = document.getElementById("Sesion_Estudiante")
 
-const NM_Estudiante = document.getElementById("NM_Estudiante"); // Constante que almacena el Nombre del Estudiante Ingresado
-const ID_Estudiantil = document.getElementById("ID_Estudiantil"); // Constante que almacena el ID del Estudiante ingresado
+const NM_Usuario = document.getElementById("NM_Usuario"); // Constante que almacena el Nombre del Usuario
+const CDG_Usuario = document.getElementById("CDG_Usuario"); // Constante que almacena la Contraseña del Usuario
 
-const NM_Docente = document.getElementById("NM_Docente"); // Constante que almacena el Nombre del Docente
-const CDG_Docente = document.getElementById("CDG_Docente"); // Constante que almacena la Contraseña del Docente
-
-const Boton_Alumno = document.getElementById("IniciarSesion_Alumno"); // Boton que confirma el ID del Estudiante y le da la Bienvenida en caso de aprobarlo
-const Boton_Docente = document.getElementById("IniciarSesion_Docente"); // Boton que permite al docente de turno iniciar secion siempre y cuando su contraseña y nombre concuerden
+const Boton_Confirmar_Usuario = document.getElementById("Boton_Confirmar_Usuario"); // Boton que confirma la identidad del usuario
 
 const Boton_Volver = document.querySelectorAll(".Opcion_Volver"); // Funcion que controla el volver a la pagina anterior
 
+const Secciones = [
+    Pagina_Inicial,
+    IniciarSesion_Usuario,
+    Sesion_Estudiante
+];
+
+let Historial_Secciones = [];
+
+// Funcion que Oculta Todas las Secciones
 function OcultarTodo() {
-    Pagina_Inicial.classList.add("oculto");
-    IniciodeSesion_Estudiante.classList.add("oculto");
-    IniciodeSesion_Docente.classList.add("oculto");
+    Secciones.forEach(seccion => {
+        seccion.classList.add("oculto");
+    });
 }
 
-// Funcion para volver a la pagina de Inicio (Nota: Lo proximo que tengo que hacer es arreglar esto para que siempre vuelva a la pagina anterior en lugar de al inicio)
-function MostrarSeccion(section){
+// Funcion para volver a la pagina de Inicio
+function MostrarSeccion(section) {
+    // Guardar la sección actual antes de cambiar
+    const Seccion_Actual = Secciones.find(
+        seccion => !seccion.classList.contains("oculto")
+    );
+    if (Seccion_Actual) {
+        Historial_Secciones.push(Seccion_Actual);
+    }
     OcultarTodo();
     section.classList.remove("oculto");
 }
 
-// Funcion para Mostrar el Inicio de Sesion del Estudiante
-MostrarInicioSecionEstudiante.addEventListener("click", () => {
+//Funcion para Mostrar la Seccion de Inicio de Sesion
+MostrarInicioSesionUsuario.addEventListener("click", () => {
+    MostrarSeccion(IniciarSesion_Usuario);
+});
+
+// Funcion del Boton para confirmar el Inicio de Sesion del Usuario
+Boton_Confirmar_Usuario.addEventListener("click", () => {
+    const Usuario_NM = NM_Usuario.value;
+    const Usuario_CDG = CDG_Usuario.value;
+
+    if(Usuario_NM.trim() === ""){
+        alert("El Nombre Ingresado no es valido o se encuentra vacio, Porfavor vuelva a intentarlo");
+        return;
+    }
+
+    if(Usuario_CDG.trim() === ""){
+        alert("La Contraseña Ingresada no es valida o se encuentra vacia, Porfavor vuelva a intentarlo");
+        return;
+    }
+
+    const Identificar_US = Cuentas_Registradas.find(
+        p => p.nombre === Usuario_NM &&
+            p.codigo_de_ingreso === Usuario_CDG);
+
+    if(!Identificar_US){
+        alert("No se pudo ubicar al Usuario");
+        return;
+    }
+
+    if (Identificar_US.rol === "Estudiante") {
+        MostrarSeccion(Sesion_Estudiante);
+        MostrarBienvenidaEstudiante(Identificar_US);
+    }
+
+    if(Identificar_US.rol === "Docente"){
+        console.log("Tipo de Usuario Docente");
+    }
+
+    if(Identificar_US.rol === "Administrador"){
+        console.log("Tipo de Usuario Administrador");
+    }
+});
+
+function MostrarBienvenidaEstudiante(usuario_actual){
+    TextoBienvenida_Estudiante.innerText =
+        `Bienvenido: ${usuario_actual.nombre} ${usuario_actual.apellido}
+            Rol: ${usuario_actual.rol}`;
+}
+
+function VolverSeccion() {
+    if (Historial_Secciones.length === 0) {
+        return;
+    }
+    const Seccion_Anterior = Historial_Secciones.pop();
     OcultarTodo();
-    IniciodeSesion_Estudiante.classList.remove("oculto");
-});
-
-MostrarInicioSecionDocente.addEventListener("click", () => {
-    OcultarTodo();
-    IniciodeSesion_Docente.classList.remove("oculto");
-});
-
-// Funcion del Boton para confirmar el Inicio de Sesion del Usuario Estudiante
-Boton_Alumno.addEventListener("click", () => {
-    const ALM_nombre = NM_Estudiante.value;
-    const ID_alm = ID_Estudiantil.value;
-
-    if(ALM_nombre.trim() === ""){
-        alert("El Nombre Ingresado no es valido, porfavor vuelva a intentarlo");
-        return;
-    }
-
-    if(ID_alm.trim() === ""){
-        alert("El ID Ingresado no es valido, porfavor vuelva a intentarlo");
-        return;
-    }
-
-    const Identificar_alm = Estudiantes_Registrados.find(p => p.nombre === ALM_nombre,p => p.ID_Estudiantil === ID_alm);
-
-    if(!Identificar_alm){
-        alert("ERROR: La contraseña o Nombre Ingresados Ingresada es incorrecta, vuelva a intentarlo");
-        return;
-    }
-
-    Identificar_alm.Asistencia = "TRUE";
-
-    MensajeIdentidadConfirmadaALM.innerText = `USUARIO IDENTIFICADO\n Bienvenido: ${Identificar_alm.nombre} ${Identificar_alm.apellido}`; // Mensaje que sale cuando la identidad del usuario es confirmada
-});
-
-// Funcion del Boton para confirmar el Inicio de Sesion del Usuario Docente
-Boton_Docente.addEventListener("click", () => {
-    const nom_docente = NM_Docente.value;
-    const cod_docente = CDG_Docente.value;
-
-    if(nom_docente.trim() === ""){
-        alert("Porfavor ingrese el nombre del docente");
-        return;
-    }
-
-    if(cod_docente.trim() === ""){
-        alert("Porfavor ingrese una contraseña");
-        return;
-    }
-
-    const Identificar_doc = Docentes_Registrados.find(p => p.nombre === nom_docente, p => p.codigo_de_ingreso === cod_docente);
-
-    if(!Identificar_doc){
-        alert("ERROR: La contraseña o Nombre Ingresados Ingresada es incorrecta, vuelva a intentarlo");
-    }
-
-    MensajeIdentidadConfirmadaDOC.innerText = `USUARIO IDENTIFICADO\n Bienvenido: ${Identificar_doc.nombre} ${Identificar_doc.apellido}`;
-});
+    Seccion_Anterior.classList.remove("oculto");
+}
 
 // Devuelve al Usuario a la Parte Anterior de la Pagina
 Boton_Volver.forEach(boton => {
     boton.addEventListener("click", () => {
-        MostrarSeccion(Pagina_Inicial);
+        VolverSeccion();
     });
 });
