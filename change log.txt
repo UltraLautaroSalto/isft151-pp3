@@ -23,3 +23,10 @@ Lo siguiente seria hacer el Inicio de Sesion del docente, junto con una opcion p
 - Se arreglo que el Boton de volver regrese a la pagina anterior en lugar de ir directamente a la pagina principal.
 - Tambien se arreglo el como se muestran y ocultan las paginas.
 - Se Modifico el como el backend reconoce al usuario (ahora solo necesita Nombre y contraseña del usuario, a diferencia de antes que variaban dichos requisitos por tipo de usuario).
+
+8/9/2026
+- Se agregaron las secciones de las sesiones de docente y administrador (de momento aun no hacen nada, falta incluir sus funciones)
+
+15/9/2026
+- Se agrego correctamente la seccion en donde el alumno marca presencia en la clase.
+- Se agrego para que se recuerde quien inicio sesion despues de la primera vez.

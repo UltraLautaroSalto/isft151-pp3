@@ -25,10 +25,53 @@
             <p id="MensajeIdentidadConfirmada"></p>
         </section>
 
+        <!-- Secciones del Estudiante -->
         <section id="Sesion_Estudiante" class="oculto">
             <h2 id="MensajeBienvenida_Estudiante"></h2>
+            <h1> Que desea hacer?</h1>
+            <p><button id="Boton_MarcarPresente_Estudiante">MARCAR PRESENTE</button></p>
+            <p><button id="Boton_MandarApelacion_Estudiante">MANDAR APELACION</button></p>
             <p><li><button class="Opcion_Volver">VOLVER ATRAS</button></li></p>
         </section>
+
+        <section id="Clases_Estudiante" class="oculto">
+            <h1>Seleccione la clase a la que desea marcar asistencia</h1>
+            
+            <select id="SeleccionarClase_Estudiante">
+                <option value="">Seleccione una Opcion</option>
+            </select>
+            <button id="Boton_MarcarPresente">MARCAR PRESENTE</button>
+            <p><li><button class="Opcion_Volver">VOLVER ATRAS</button></li></p>
+
+            <p id="Mensaje_Asistencia"></p>
+        </section>
+
+        <section id ="Apelacion_Estudiante" class="oculto">
+            <h1>Seleccione la clase a la que desea mandar apelacion</h1>
+            
+            <select id="SeleccionarClase_Estudiante">
+                <option value="">Seleccionar una Opcion</option>
+            </select>
+            <br>
+            <p>Escriba el motivo de su apelacion: <input id="Razon_Apelacion"></p>
+            <button id="Boton_EnviarApelacion">ENVIAR APELACION</button>
+            <p><li><button class="Opcion_Volver">VOLVER ATRAS</button></li></p>
+        </section>
+        <!-- Secciones del Estudiante -->
+
+        <!-- Secciones del Docente -->
+        <section id="Sesion_Docente" class="oculto">
+            <h2 id="MensajeBienvenida_Docente"></h2>
+            <p><li><button class="Opcion_Volver">VOLVER ATRAS</button></li></p>
+        </section>
+        <!-- Secciones del Docente -->
+
+        <!-- Secciones del Administrador -->
+        <section id="Sesion_Administrador" class="oculto">
+            <h2 id="MensajeBienvenida_Administrador"></h2>
+            <p><li><button class="Opcion_Volver">VOLVER ATRAS</button></li></p>
+        </section>
+        <!-- Secciones del Administrador -->
     </body>
 
     <script src="prototype_1.js"></script>
