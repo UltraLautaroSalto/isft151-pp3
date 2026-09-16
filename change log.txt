@@ -30,3 +30,6 @@ Lo siguiente seria hacer el Inicio de Sesion del docente, junto con una opcion p
 15/9/2026
 - Se agrego correctamente la seccion en donde el alumno marca presencia en la clase.
 - Se agrego para que se recuerde quien inicio sesion despues de la primera vez.
+
+16/9/2026
+- Se agrego correctamente la seccion en donde el alumno manda las apelaciones a las clases seleccionadas.
