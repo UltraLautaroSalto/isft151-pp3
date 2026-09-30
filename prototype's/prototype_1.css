@@ -35,3 +35,8 @@ select {
 option {
     background: white;
 }
+
+table {
+    margin: 0px auto;
+    text-align: center;
+}

@@ -17,12 +17,13 @@ let Cuentas_Registradas = [
 ];
 
 let Clases_Actuales = [
-    {Carrera: "Analista de Sistemas", Materia: "Algoritmo y Estructura de Datos 1", Año: "1°", Docente_Asignado: "Lance Vance", ID: "1"},
-    {Carrera: "Analista de Sistemas", Materia: "Practicar Profecionalizantes 3", Año: "3°", Docente_Asignado: "Denise Robinson", ID: "2"},
-    {Carrera: "Analista de Sistemas", Materia: "Matematicas 2", Año: "2°", Docente_Asignado: "Niko Bellic", ID: "3"}
+    {Materia: "Algoritmo y Estructura de Datos 1", Año: "1°", Docente_Asignado: "Lance", Estudiantes: ["Jorge","Maria"]},
+    {Materia: "Practicar Profecionalizantes 3", Año: "3°", Docente_Asignado: "Denise", Estudiantes: ["Maria", "Alex"]},
+    {Materia: "Matematicas 2", Año: "2°", Docente_Asignado: "Niko", Estudiantes: ["Alex", "Jorge"]}
 ];
 
 let Usuario_Actual = null;
+let Estudiante_Modificando = null;
 
 const Pagina_Inicial = document.getElementById("PaginaInicial"); // La Pagina Principal
 
@@ -31,11 +32,14 @@ const MostrarInicioSesionUsuario = document.getElementById("Boton_Iniciar_Sesion
 const MarcarPresente_Estudiante = document.getElementById("Boton_MarcarPresente_Estudiante"); // Seccion que se ocupa de mostrar la tabla de clases y le permite al usuario marcar presente en X Clase
 const Boton_MarcarPresente_Estudiante = document.getElementById("Boton_MarcarPresente_Estudiante"); // Boton que controla la visibilida de la seccion "Clases_Estudiante"
 const Boton_MandarApelacion_Estudiante = document.getElementById("Boton_MandarApelacion_Estudiante"); // Boton que controla la visibilidad de la seccion "Apelacion_Estudiante"
+const Boton_AdministrarEstudiantes = document.getElementById("Boton_AdministrarEstudiantes"); // Boton que controla la visibilidad de la seccion "AdministrarEstudiantes_Docente"
+const Boton_RevisarApelaciones = document.getElementById("Boton_RevisarApelaciones");
 
 // Mensajes
 const TextoBienvenida_Estudiante = document.getElementById("MensajeBienvenida_Estudiante"); // Funcion que muestra el texto de Bienvenida del Estudiante
 const TextoBienvenida_Docente = document.getElementById("MensajeBienvenida_Docente"); // Funcion que muestra el texto de Bienvenida del Docente
 const TextoBienvenida_Administrador = document.getElementById("MensajeBienvenida_Administrador"); // Funcion que muestra el texto de Bienvenida del Administrador
+const Mensaje_ModificarEstudiante = document.getElementById("Mensaje_ModificarEstudiante");
 
 // Funciones Principales
 const IniciarSesion_Usuario = document.getElementById("IniciarSesion") // Seccion donde ocurre el Inicio de Sesion del Usuario
@@ -44,14 +48,25 @@ const Sesion_Docente = document.getElementById("Sesion_Docente"); // Seccion de 
 const Sesion_Administrador = document.getElementById("Sesion_Administrador"); // Seccion de la Sesion del Administrador
 const SeleccionarClase_EstudiantePresente = document.getElementById("SeleccionarClase_EstudiantePresente"); // Funcion que se ocupa de procesar el presente en la clase seleccionada
 const SeleccionarClase_EstudianteApelacion = document.getElementById("SeleccionarClase_EstudianteApelacion"); // Funcion que se ocupa de asignar la apelacion a la clase seleccionada
-const Clases_Estudiante = document.getElementById("Clases_Estudiante"); // Seccion de las clases del estudiante 
+const Clases_Estudiante = document.getElementById("Clases_EstudiantePresente"); // Seccion de las clases del estudiante 
 const Apelacion_Estudiante = document.getElementById("Apelacion_Estudiante"); // Seccion de las apelaciones del estudiante
 const EnviarApelacion_Estudiante = document.getElementById("Boton_MandarApelacion_Estudiante"); // Seccion que se ocupa de las apelaciones enviadas por los estudiantes (estas se tendrian que almacenar en la base de datos para que despues el profe pueda verlas)
+const AdministrarEstudiantes_Docente = document.getElementById("AdministrarEstudiantes_Docente"); // Seccion de la administracion de estudiantes del docente
+const TablaEstudiantes_Docente = document.getElementById("ListaEstudiantes_Docente"); 
+const InformacionClase_Docente = document.getElementById("InformacionClase_Docente");
+const Boton_GuardarCambios_Estudiante = document.getElementById("Boton_GuardarCambios_Estudiante");
+const Boton_EliminarEstudiante_Clase = document.getElementById("Boton_EliminarEstudiante_Clase");
+const VerApelaciones_Docente = document.getElementById("VerApelaciones_Docente");
 
 // Datos Almacenados en Memoria
 const NM_Usuario = document.getElementById("NM_Usuario"); // Constante que almacena el Nombre del Usuario 
 const CDG_Usuario = document.getElementById("CDG_Usuario"); // Constante que almacena la Contraseña del Usuario
 const Rzn_Apelacion = document.getElementById("Razon_Apelacion"); // Constante que almacena la razon de la apelacion del estudiante
+const ModificarEstudiante_Docente = document.getElementById("ModificarEstudiante_Docente");
+const Modificar_Nombre = document.getElementById("Modificar_Nombre");
+const Modificar_Apellido = document.getElementById("Modificar_Apellido");
+const Modificar_Edad = document.getElementById("Modificar_Edad");
+const Modificar_Asistencia = document.getElementById("Modificar_Asistencia");
 
 // Funciones Adicionales
 const Boton_Confirmar_Usuario = document.getElementById("Boton_Confirmar_Usuario"); // Boton que confirma la identidad del usuario
@@ -59,6 +74,8 @@ const Boton_MarcarPresente = document.getElementById("Boton_MarcarPresente"); //
 const Boton_EnviarApelacion = document.getElementById("Boton_EnviarApelacion"); // Boton que envia la apelacion al docente asignado a la clase
 const Boton_Volver = document.querySelectorAll(".Opcion_Volver"); // Funcion que controla el volver a la pagina anterior
 const Boton_VolverInicio = document.getElementById("Opcion_VolverInicio"); // Funcion que regera al usuario a la pagina principal
+const Aprobar_Apelacion = document.getElementById("Aprobar_Apelacion");
+const Rechazar_Apelacion = document.getElementById("Rechazar_Apelacion");
 
 const Secciones = [
     Pagina_Inicial,
@@ -67,7 +84,10 @@ const Secciones = [
     Sesion_Docente,
     Sesion_Administrador,
     Clases_Estudiante,
-    Apelacion_Estudiante
+    Apelacion_Estudiante,
+    AdministrarEstudiantes_Docente,
+    ModificarEstudiante_Docente,
+    VerApelaciones_Docente
 ];
 
 let Historial_Secciones = [];
@@ -158,18 +178,9 @@ Boton_Confirmar_Usuario.addEventListener("click", () => {
     }
 });
 
+/////////////////////////////////////////////////////////////////////FUNCIONES ALUMNO//////////////////////////////////////////////////////////
 function MostrarBienvenidaEstudiante(usuario_actual){
     TextoBienvenida_Estudiante.innerText =
-        `Bienvenido: ${usuario_actual.nombre} ${usuario_actual.apellido}`;
-}
-
-function MostrarBienvenidaDocente(usuario_actual){
-    TextoBienvenida_Docente.innerText = 
-        `Bienvenido: ${usuario_actual.nombre} ${usuario_actual.apellido}`;
-}
-
-function MostrarBienvenidaAdministrador(usuario_actual){
-    TextoBienvenida_Administrador.innerText = 
         `Bienvenido: ${usuario_actual.nombre} ${usuario_actual.apellido}`;
 }
 
@@ -217,6 +228,136 @@ Boton_EnviarApelacion.addEventListener("click", () => {
     //console.log(Usuario_Actual.apelaciones_actuales);
     Mensaje_Apelacion.innerText = `Se mando correctamente la apelacion a la clase ${Clase_Seleccionada}`;
 });
+/////////////////////////////////////////////////////////////////////FUNCIONES ALUMNO//////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////FUNCIONES DOCENTE//////////////////////////////////////////////////////////
+function MostrarBienvenidaDocente(usuario_actual){
+    TextoBienvenida_Docente.innerText = 
+        `Bienvenido: ${usuario_actual.nombre} ${usuario_actual.apellido}`;
+}
+
+Boton_AdministrarEstudiantes.addEventListener("click", () => {
+    MostrarSeccion(AdministrarEstudiantes_Docente);
+    CargarEstudiantesDocente();
+});
+
+function ObtenerClaseDocente() {
+    return Clases_Actuales.find(
+        clase => clase.Docente_Asignado === Usuario_Actual.nombre
+    );
+}
+
+function CargarEstudiantesDocente() {
+    TablaEstudiantes_Docente.innerHTML = "";
+
+    const Clase_Docente = ObtenerClaseDocente();
+    //console.log(Clase_Docente);
+
+    if (!Clase_Docente) {
+        InformacionClase_Docente.innerText ="El docente no tiene ninguna clase asignada.";
+        return;
+    }
+
+    InformacionClase_Docente.innerText =
+        `Clase: ${Clase_Docente.Materia} Docente: ${Usuario_Actual.nombre}`;
+
+    Clase_Docente.Estudiantes.forEach(nombreEstudiante => {
+        const estudiante = Cuentas_Registradas.find(
+            usuario => usuario.nombre === nombreEstudiante && usuario.rol === "Estudiante"
+        );
+
+        if (!estudiante) {
+            return;
+        }
+
+        const fila = document.createElement("tr");
+        const nombre = document.createElement("td");
+        nombre.innerText =`${estudiante.nombre} ${estudiante.apellido}`;
+        const presente = document.createElement("td");
+        presente.innerText = estudiante.asistencias[Clase_Docente.Materia];
+        const acciones = document.createElement("td");
+        const botonModificar = document.createElement("button");
+        botonModificar.innerText = "Modificar estudiante";
+        acciones.appendChild(botonModificar);
+
+        botonModificar.addEventListener("click", () => {
+            Estudiante_Modificando = estudiante;
+            Modificar_Nombre.value = estudiante.nombre;
+            Modificar_Apellido.value = estudiante.apellido;
+            Modificar_Edad.value = estudiante.edad;
+            const Asistencia_Actual = estudiante.asistencias[Clase_Docente.Materia];
+            Modificar_Asistencia.value = Asistencia_Actual;
+            MostrarSeccion(ModificarEstudiante_Docente);
+        });
+        fila.appendChild(nombre);
+        fila.appendChild(presente);
+        fila.appendChild(acciones);
+        TablaEstudiantes_Docente.appendChild(fila);
+    });
+
+    Boton_GuardarCambios_Estudiante.addEventListener("click", () => {
+        if (Estudiante_Modificando === null) {
+            return;
+        }
+
+        const Clase_Docente = ObtenerClaseDocente();
+
+        if (!Clase_Docente) {
+            return;
+        }
+        const NombreAnterior = Estudiante_Modificando.nombre;
+        Estudiante_Modificando.nombre = Modificar_Nombre.value;
+        Estudiante_Modificando.apellido = Modificar_Apellido.value;
+        Estudiante_Modificando.edad = Modificar_Edad.value;
+        Estudiante_Modificando.asistencias[Clase_Docente.Materia] = Modificar_Asistencia.value;
+
+        const Posicion_Estudiante = Clase_Docente.Estudiantes.indexOf(NombreAnterior);
+
+        if (Posicion_Estudiante === -1) {
+            alert("No se pudo encontrar al usuario en la clase");
+            return;
+        }
+
+    Clase_Docente.Estudiantes[Posicion_Estudiante] = Modificar_Nombre.value;
+        Mensaje_ModificarEstudiante.innerText = "Los cambios fueron guardados correctamente.";
+        CargarEstudiantesDocente();
+    });
+
+    Boton_EliminarEstudiante_Clase.addEventListener("click", () => {
+        if (Estudiante_Modificando === null) {
+            return;
+        }
+        
+        const Clase_Docente = ObtenerClaseDocente();
+
+        if (!Clase_Docente) {
+            return;
+        }
+
+        const Posicion_Estudiante = Clase_Docente.Estudiantes.indexOf(Estudiante_Modificando.nombre);
+        if (Posicion_Estudiante === -1) {
+            return;
+        }
+        Clase_Docente.Estudiantes.splice(Posicion_Estudiante,1);
+        Mensaje_ModificarEstudiante.innerText = "El estudiante fue eliminado de esta clase.";
+        Estudiante_Modificando = null;
+        CargarEstudiantesDocente();
+        MostrarSeccion(AdministrarEstudiantes_Docente);
+    });
+}
+
+VerApelaciones_Docente.addEventListener("click", () => {
+    <h1>Ver las Apelaciones pendientes de revision</h1>
+    
+});
+/////////////////////////////////////////////////////////////////////FUNCIONES DOCENTE//////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////FUNCIONES ADMINISTRADOR//////////////////////////////////////////////////////////
+function MostrarBienvenidaAdministrador(usuario_actual){
+    TextoBienvenida_Administrador.innerText = 
+        `Bienvenido: ${usuario_actual.nombre} ${usuario_actual.apellido}`;
+}
+/////////////////////////////////////////////////////////////////////FUNCIONES ADMINISTRADOR//////////////////////////////////////////////////////////
 
 function VolverSeccion() {
     if (Historial_Secciones.length === 0) {

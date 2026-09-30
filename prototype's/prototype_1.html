@@ -35,7 +35,7 @@
             <p><li><button id="Opcion_VolverInicio">VOLVER AL INICIO</button></li></p>
         </section>
 
-        <section id="Clases_Estudiante" class="oculto">
+        <section id="Clases_EstudiantePresente" class="oculto">
             <h1>Seleccione la clase a la que desea marcar asistencia</h1>
             
             <select id="SeleccionarClase_EstudiantePresente">
@@ -65,7 +65,61 @@
         <!-- Secciones del Docente -->
         <section id="Sesion_Docente" class="oculto">
             <h2 id="MensajeBienvenida_Docente"></h2>
+            <h1>¿Que desea hacer hoy?</h1>
+            <p><button id="Boton_AdministrarEstudiantes">ADMINISTRAR ESTUDIANTES</button></p>
+            <p><button id="Boton_RevisarApelaciones">VER APELACIONES PENDIENTES</button></p>
             <p><li><button class="Opcion_Volver">VOLVER ATRAS</button></li></p>
+            <p><li><button id="Opcion_VolverInicio">VOLVER AL INICIO</button></li></p>
+        </section>
+
+        <section id="AdministrarEstudiantes_Docente" class="oculto">
+            <h1>Administrar estudiantes</h1>
+            <p id="InformacionClase_Docente"></p>
+            <table id="TablaEstudiantes_Docente">
+            <thead>
+                <tr>
+                    <th>Nombre Estudiante</th>
+                    <th>Presente</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="ListaEstudiantes_Docente">
+            </tbody>
+        </table>
+        <p>
+            <button class="Opcion_Volver">VOLVER ATRAS</button>
+            <p><li><button id="Opcion_VolverInicio">VOLVER AL INICIO</button></li></p>
+        </p>
+        </section>
+
+        <section id="ModificarEstudiante_Docente" class="oculto">
+            <h1>Modificar estudiante</h1>
+            <p>Nombre:<input type="text" id="Modificar_Nombre"></p>
+            <p>Apellido:<input type="text" id="Modificar_Apellido"></p>
+            <p>Edad:<input type="number" id="Modificar_Edad"></p>
+            <p>Asistencia:
+                <select id="Modificar_Asistencia">
+                    <option value="TRUE">Presente</option>
+                    <option value="FALSE">Ausente</option>
+                </select></p>
+            <button id="Boton_GuardarCambios_Estudiante">GUARDAR CAMBIOS</button>
+            <button id="Boton_EliminarEstudiante_Clase">ELIMINAR DE ESTA CLASE</button>
+            <p><button class="Opcion_Volver">VOLVER ATRAS</button></p>
+            <p><li><button id="Opcion_VolverInicio">VOLVER AL INICIO</button></li></p>
+            <p id="Mensaje_ModificarEstudiante"></p>
+        </section>
+
+        <section id="VerApelaciones_Docente" class="oculto">
+            <h1>Seleccione un estudiante</h1>
+            <select id="ApelacionesEstudiante_Seleccionar">
+                <option value="Jorge">JORGE</option>
+                <option value="Maria">MARIA</option>
+                <option value="Alex">ALEX</option>
+            </select>
+            <p id="ApelacionActual"></p>
+            <button id="Aprobar_Apelacion">APROBAR</button>
+            <button id="Rechazar_Apelacion">RECHAZAR</button>
+            <p><button class="Opcion_Volver">VOLVER ATRAS</button></p>
             <p><li><button id="Opcion_VolverInicio">VOLVER AL INICIO</button></li></p>
         </section>
         <!-- Secciones del Docente -->
