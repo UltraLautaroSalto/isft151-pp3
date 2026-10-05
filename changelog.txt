@@ -39,3 +39,6 @@ Lo siguiente seria hacer el Inicio de Sesion del docente, junto con una opcion p
 
 30/9/2026
 - Se añadio una nueva carpeta al proyecto llamada "API" esta contiene un documento con la documentacion de la WebAPI (aun no esta terminada del todo, en los proximos dias la estaria termimando)
+
+5/10/2026
+- Se completo la documentacion de la WebAPI (Puede contener errores) 
