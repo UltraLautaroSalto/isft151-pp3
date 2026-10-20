@@ -41,4 +41,12 @@ Lo siguiente seria hacer el Inicio de Sesion del docente, junto con una opcion p
 - Se añadio una nueva carpeta al proyecto llamada "API" esta contiene un documento con la documentacion de la WebAPI (aun no esta terminada del todo, en los proximos dias la estaria termimando)
 
 5/10/2026
-- Se completo la documentacion de la WebAPI (Puede contener errores) 
+- Se completo la documentacion de la WebAPI (Puede contener errores)
+
+18/10/2026
+- Se cambio para que las apelaciones se almacenen en una variable general en lugar de por estudiante.
+
+20/10/2026
+- Se agrego la seccion en la que el docente puede ver las apelaciones que tiene pendiente para responder.
+- se modifico el como se envian apelaciones por parte de los estudiantes
+- Hay un error con el Boton "Boton_VolverInicio" en donde a veces en algunas paginas no funciona

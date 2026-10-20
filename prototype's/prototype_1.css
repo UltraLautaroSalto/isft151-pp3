@@ -40,3 +40,14 @@ table {
     margin: 0px auto;
     text-align: center;
 }
+
+#Sesion_Actual {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+#NombreCuenta_Actual {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: cyan;
+}

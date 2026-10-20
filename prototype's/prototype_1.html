@@ -25,7 +25,7 @@
             <p id="MensajeIdentidadConfirmada"></p>
         </section>
 
-        <!-- Secciones del Estudiante -->
+<!------------------------------------------- Secciones del Estudiante ------------------------------------------->
         <section id="Sesion_Estudiante" class="oculto">
             <h2 id="MensajeBienvenida_Estudiante"></h2>
             <h1> Que desea hacer?</h1>
@@ -60,9 +60,9 @@
             <p><li><button id="Opcion_VolverInicio">VOLVER AL INICIO</button></li></p>
             <p id="Mensaje_Apelacion"></p>
         </section>
-        <!-- Secciones del Estudiante -->
+<!------------------------------------------- Secciones del Estudiante ------------------------------------------->
 
-        <!-- Secciones del Docente -->
+<!------------------------------------------- Secciones del Docente ------------------------------------------->
         <section id="Sesion_Docente" class="oculto">
             <h2 id="MensajeBienvenida_Docente"></h2>
             <h1>¿Que desea hacer hoy?</h1>
@@ -111,26 +111,30 @@
 
         <section id="VerApelaciones_Docente" class="oculto">
             <h1>Seleccione un estudiante</h1>
-            <select id="ApelacionesEstudiante_Seleccionar">
-                <option value="Jorge">JORGE</option>
-                <option value="Maria">MARIA</option>
-                <option value="Alex">ALEX</option>
-            </select>
-            <p id="ApelacionActual"></p>
-            <button id="Aprobar_Apelacion">APROBAR</button>
-            <button id="Rechazar_Apelacion">RECHAZAR</button>
+            <div id="ContenedorApelaciones_Actuales"></div>
             <p><button class="Opcion_Volver">VOLVER ATRAS</button></p>
             <p><li><button id="Opcion_VolverInicio">VOLVER AL INICIO</button></li></p>
         </section>
-        <!-- Secciones del Docente -->
+<!------------------------------------------- Secciones del Docente ------------------------------------------->
 
-        <!-- Secciones del Administrador -->
+<!------------------------------------------- Secciones del Administrador ------------------------------------------->
         <section id="Sesion_Administrador" class="oculto">
             <h2 id="MensajeBienvenida_Administrador"></h2>
             <p><li><button class="Opcion_Volver">VOLVER ATRAS</button></li></p>
             <p><li><button id="Opcion_VolverInicio">VOLVER AL INICIO</button></li></p>
         </section>
-        <!-- Secciones del Administrador -->
+<!------------------------------------------- Secciones del Administrador ------------------------------------------->
+
+    <section id="Sesion_Actual">
+        <h3 id="NombreCuenta_Actual"></h3>
+        <select id="OpcionesSesion_Activa">
+            <option value="">-Seleccione una Opcion-</option>
+            <option value="OpcionesSesion_primera">CAMBIAR CONTRASEÑA</option>
+            <option value="OpcionesSesion_segunda">CERRAR SESION</option>
+            <option value="OpcionesSesion_tercera">ELIMINAR CUENTA</option>
+        </select>
+        <p><button id="SeleccionarOpcion_SesionActiva">ELEGIR OPCION</button></p>
+    </section>
     </body>
 
     <script src="prototype_1.js"></script>

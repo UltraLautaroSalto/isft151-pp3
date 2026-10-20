@@ -1,13 +1,10 @@
 let Cuentas_Registradas = [
     {nombre: "Jorge", apellido: "Torres", edad: "16", genero: "Masculino", codigo_de_ingreso: "1234", rol: "Estudiante", 
-        asistencias:{"Algoritmo y Estructura de Datos 1": "FALSE", "Practicar Profecionalizantes 3": "FALSE", "Matematicas 2": "FALSE"},
-        apelaciones_actuales: {"Algoritmo y Estructura de Datos 1": "", "Practicar Profecionalizantes 3": "", "Matematicas 2": ""}},
+        asistencias:{"Algoritmo y Estructura de Datos 1": "FALSE", "Practicar Profecionalizantes 3": "FALSE", "Matematicas 2": "FALSE"}},
     {nombre: "Maria", apellido: "Gutierrez", edad: "15", genero: "Femenino", codigo_de_ingreso: "4321", rol: "Estudiante", 
-        asistencias:{"Algoritmo y Estructura de Datos 1": "FALSE", "Practicar Profecionalizantes 3": "FALSE", "Matematicas 2": "FALSE"},
-        apelaciones_actuales: {"Algoritmo y Estructura de Datos 1": "", "Practicar Profecionalizantes 3": "", "Matematicas 2": ""}},
+        asistencias:{"Algoritmo y Estructura de Datos 1": "FALSE", "Practicar Profecionalizantes 3": "FALSE", "Matematicas 2": "FALSE"}},
     {nombre: "Alex", apellido: "Santos", edad: "17", genero: "Sin Identificar", codigo_de_ingreso: "9999", rol: "Estudiante", 
-        asistencias:{"Algoritmo y Estructura de Datos 1": "FALSE", "Practicar Profecionalizantes 3": "FALSE", "Matematicas 2": "FALSE"},
-        apelaciones_actuales: {"Algoritmo y Estructura de Datos 1": "", "Practicar Profecionalizantes 3": "", "Matematicas 2": ""}},
+        asistencias:{"Algoritmo y Estructura de Datos 1": "FALSE", "Practicar Profecionalizantes 3": "FALSE", "Matematicas 2": "FALSE"}},
 
     {nombre: "Lance", apellido: "Vanze", edad:"34", genero: "Masculino", codigo_de_ingreso: "VanceLastDance9876", rol: "Docente"},
     {nombre: "Denise", apellido: "Robinson", edad:"45", genero: "Femenino", codigo_de_ingreso: "CJMYLOVE6789", rol: "Docente"},
@@ -24,26 +21,29 @@ let Clases_Actuales = [
 
 let Usuario_Actual = null;
 let Estudiante_Modificando = null;
+let Apelaciones_Pendientes = [{id: 1, nombre: "Pepito",apellido: "Alvarez",Clase_Seleccionada: "Algoritmo y Estructura de Datos 1",Razon_Apelacion: "Prueba"}];
 
 const Pagina_Inicial = document.getElementById("PaginaInicial"); // La Pagina Principal
 
 // Botones Para Mostrar una Seccion especifica
-const MostrarInicioSesionUsuario = document.getElementById("Boton_Iniciar_Sesion_Usuario") // Funcion para controlar la visibilidad de "IniciarSesion_Usuario"
+const MostrarInicioSesionUsuario = document.getElementById("Boton_Iniciar_Sesion_Usuario"); // Funcion para controlar la visibilidad de "IniciarSesion_Usuario"
 const MarcarPresente_Estudiante = document.getElementById("Boton_MarcarPresente_Estudiante"); // Seccion que se ocupa de mostrar la tabla de clases y le permite al usuario marcar presente en X Clase
 const Boton_MarcarPresente_Estudiante = document.getElementById("Boton_MarcarPresente_Estudiante"); // Boton que controla la visibilida de la seccion "Clases_Estudiante"
 const Boton_MandarApelacion_Estudiante = document.getElementById("Boton_MandarApelacion_Estudiante"); // Boton que controla la visibilidad de la seccion "Apelacion_Estudiante"
 const Boton_AdministrarEstudiantes = document.getElementById("Boton_AdministrarEstudiantes"); // Boton que controla la visibilidad de la seccion "AdministrarEstudiantes_Docente"
 const Boton_RevisarApelaciones = document.getElementById("Boton_RevisarApelaciones");
+const SeleccionarOpcion_SesionActiva = document.getElementById("SeleccionarOpcion_SesionActiva");
 
 // Mensajes
+const TextoNombreCuenta_Actual = document.getElementById("NombreCuenta_Actual"); // Muestra el nombre de la cuenta actual
 const TextoBienvenida_Estudiante = document.getElementById("MensajeBienvenida_Estudiante"); // Funcion que muestra el texto de Bienvenida del Estudiante
 const TextoBienvenida_Docente = document.getElementById("MensajeBienvenida_Docente"); // Funcion que muestra el texto de Bienvenida del Docente
 const TextoBienvenida_Administrador = document.getElementById("MensajeBienvenida_Administrador"); // Funcion que muestra el texto de Bienvenida del Administrador
 const Mensaje_ModificarEstudiante = document.getElementById("Mensaje_ModificarEstudiante");
 
 // Funciones Principales
-const IniciarSesion_Usuario = document.getElementById("IniciarSesion") // Seccion donde ocurre el Inicio de Sesion del Usuario
-const Sesion_Estudiante = document.getElementById("Sesion_Estudiante") // Seccion de la Sesion del Estudiante
+const IniciarSesion_Usuario = document.getElementById("IniciarSesion"); // Seccion donde ocurre el Inicio de Sesion del Usuario
+const Sesion_Estudiante = document.getElementById("Sesion_Estudiante"); // Seccion de la Sesion del Estudiante
 const Sesion_Docente = document.getElementById("Sesion_Docente"); // Seccion de la Sesion del Docente
 const Sesion_Administrador = document.getElementById("Sesion_Administrador"); // Seccion de la Sesion del Administrador
 const SeleccionarClase_EstudiantePresente = document.getElementById("SeleccionarClase_EstudiantePresente"); // Funcion que se ocupa de procesar el presente en la clase seleccionada
@@ -67,6 +67,7 @@ const Modificar_Nombre = document.getElementById("Modificar_Nombre");
 const Modificar_Apellido = document.getElementById("Modificar_Apellido");
 const Modificar_Edad = document.getElementById("Modificar_Edad");
 const Modificar_Asistencia = document.getElementById("Modificar_Asistencia");
+const OpcionSesion_Activa = document.getElementById("OpcionesSesion_Activa");
 
 // Funciones Adicionales
 const Boton_Confirmar_Usuario = document.getElementById("Boton_Confirmar_Usuario"); // Boton que confirma la identidad del usuario
@@ -74,8 +75,6 @@ const Boton_MarcarPresente = document.getElementById("Boton_MarcarPresente"); //
 const Boton_EnviarApelacion = document.getElementById("Boton_EnviarApelacion"); // Boton que envia la apelacion al docente asignado a la clase
 const Boton_Volver = document.querySelectorAll(".Opcion_Volver"); // Funcion que controla el volver a la pagina anterior
 const Boton_VolverInicio = document.getElementById("Opcion_VolverInicio"); // Funcion que regera al usuario a la pagina principal
-const Aprobar_Apelacion = document.getElementById("Aprobar_Apelacion");
-const Rechazar_Apelacion = document.getElementById("Rechazar_Apelacion");
 
 const Secciones = [
     Pagina_Inicial,
@@ -163,19 +162,106 @@ Boton_Confirmar_Usuario.addEventListener("click", () => {
     Usuario_Actual = Identificar_US;
 
     if (Identificar_US.rol === "Estudiante") {
+        TextoNombreCuenta_Actual.textContent = `Sesion Actual: ${Usuario_Actual.nombre} ${Usuario_Actual.apellido}`;
         MostrarSeccion(Sesion_Estudiante);
         MostrarBienvenidaEstudiante(Identificar_US);
     }
 
     if(Identificar_US.rol === "Docente"){
+        TextoNombreCuenta_Actual.textContent = `Sesion Actual: ${Usuario_Actual.nombre} ${Usuario_Actual.apellido}`;
         MostrarSeccion(Sesion_Docente);
         MostrarBienvenidaDocente(Identificar_US);
     }
 
     if(Identificar_US.rol === "Administrador"){
+        TextoNombreCuenta_Actual.textContent = `Sesion Actual: ${Usuario_Actual.nombre} ${Usuario_Actual.apellido}`;
         MostrarSeccion(Sesion_Administrador);
         MostrarBienvenidaAdministrador(Identificar_US);
     }
+});
+
+SeleccionarOpcion_SesionActiva.addEventListener("click", function() {
+    const Opcion_Elegida = OpcionSesion_Activa.value;
+
+    if(Usuario_Actual == null){
+        alert("No hay una cuenta iniciada en este momento");
+        return;
+    }else{
+        switch(Opcion_Elegida){
+            case "":
+                alert("Porfavor seleccione una de las demás opciones");
+            break;
+            case "OpcionesSesion_primera":
+                console.log("El usuario quiere cambiar su contraseña");
+                const Codigo_Ingresado = prompt("Ingrese su nueva contraseña");
+
+                if(Codigo_Ingresado === null || Codigo_Ingresado === ""){
+                    alert("La contraseña ingresada no es valida o no se ingreso, porfavor vuelva a intentarlo");
+                    return;
+                }
+
+                const Confirmacion_CambiarCodigo = confirm("¿Esta seguro que desea cambiar la contraseña?");
+
+                if(!Confirmacion_CambiarCodigo){
+                    alert("Se cancelo el cambio de contraseña");
+                    break;
+                }
+
+                Usuario_Actual.codigo_de_ingreso = Codigo_Ingresado;
+                alert("Tu contraseña a sido cambiada correctamente");
+            break;
+            case "OpcionesSesion_segunda":
+                const Confirmacion_CerrarCuenta = confirm("¿Esta seguro de que desea cerrar su sesion?");
+
+                if(!Confirmacion_CerrarCuenta){
+                    alert("Se cancelo el cerrado de sesion");
+                    break;
+                }
+
+                Usuario_Actual = null;
+                TextoNombreCuenta_Actual.textContent = ``;
+                MostrarSeccion(Pagina_Inicial);
+            break;
+            case "OpcionesSesion_tercera":
+                console.log("El Usuario quiere eliminar su cuenta");
+                const EliminarCuenta_Codigo = prompt("Ingrese su contraseña")
+
+                if(EliminarCuenta_Codigo === null || EliminarCuenta_Codigo === ""){
+                    alert("Eliminiacion Cancelada");
+                    break;
+                }
+
+                if(EliminarCuenta_Codigo !== Usuario_Actual.codigo_de_ingreso){
+                    alert("La contraseña ingresada es incorrecta");
+                    break;
+                }
+                
+                const Confirmacion_EliminarCuenta = confirm("Esta seguro que desea eliminar su cuenta? Esta accion es permanente");
+                
+                if(!Confirmacion_EliminarCuenta){
+                    alert("Eliminacion Cancelada");
+                    break;
+                }
+
+                const IndiceCuenta = Cuentas_Registradas.findIndex(cuenta => cuenta === Usuario_Actual);
+
+                if(IndiceCuenta !== -1){
+                    Cuentas_Registradas.splice(IndiceCuenta, 1);
+                    Usuario_Actual = null;
+                    TextoNombreCuenta_Actual.textContent = ``;
+
+                    alert("Tu cuenta fue Eliminada exitosamente de la base de datos");
+                    MostrarSeccion(Pagina_Inicial);
+                } else {
+                    alert("no se a encontrado la cuenta que desea eliminar.");
+                }
+            
+            break;
+            default:
+                alert("Opcion seleccionada invalida, porfavor vuela a intentarlo");
+            break;
+        }
+}
 });
 
 /////////////////////////////////////////////////////////////////////FUNCIONES ALUMNO//////////////////////////////////////////////////////////
@@ -224,9 +310,25 @@ Boton_EnviarApelacion.addEventListener("click", () => {
         return;
     }
 
-    Usuario_Actual.apelaciones_actuales[Clase_Seleccionada] = MensajeApelacion;
-    //console.log(Usuario_Actual.apelaciones_actuales);
-    Mensaje_Apelacion.innerText = `Se mando correctamente la apelacion a la clase ${Clase_Seleccionada}`;
+    // Obtener el ID de la última apelación.
+    const UltimaApelacion = Apelaciones_Pendientes.at(-1);
+
+    // Generar el siguiente ID.
+    const NuevoID = UltimaApelacion ? UltimaApelacion.id + 1 : 1;
+
+    // Crear la nueva apelación.
+    const NuevaApelacion = {
+        id: NuevoID,
+        nombre: Usuario_Actual.nombre,
+        apellido: Usuario_Actual.apellido,
+        clase: Clase_Seleccionada,
+        razon: MensajeApelacion
+    };
+
+    // Agregarla al array.
+    Apelaciones_Pendientes.push(NuevaApelacion);
+    Mensaje_Apelacion.innerText = `Se mandó correctamente la apelación a la clase ${Clase_Seleccionada}`;
+    console.log(Apelaciones_Pendientes);
 });
 /////////////////////////////////////////////////////////////////////FUNCIONES ALUMNO//////////////////////////////////////////////////////////
 
@@ -346,10 +448,84 @@ function CargarEstudiantesDocente() {
     });
 }
 
-VerApelaciones_Docente.addEventListener("click", () => {
-    <h1>Ver las Apelaciones pendientes de revision</h1>
-    
+Boton_RevisarApelaciones.addEventListener("click", () => {
+    MostrarSeccion(VerApelaciones_Docente);
 });
+
+VerApelaciones_Docente.addEventListener("click", () =>{
+    Mostrar_Apelaciones();
+});
+
+function Mostrar_Apelaciones() {
+    const Contenedor = document.getElementById("ContenedorApelaciones_Actuales");
+
+    Contenedor.replaceChildren();
+
+    if(Apelaciones_Pendientes.length === 0){
+        Contenedor.textContent = "No hay apelaciones pendientes.";
+        return;
+    }
+
+    // Recorremos todas las apelaciones.
+    Apelaciones_Pendientes.forEach(Apelacion => {
+
+        const Tarjeta = document.createElement("div");
+        const Nombre = document.createElement("h3");
+        const Apellido = document.createElement("h3");
+        const Clase = document.createElement("h3");
+        const Motivo = document.createElement("p");
+        const BotonAprobar = document.createElement("button");
+        const BotonRechazar = document.createElement("button");
+
+        Nombre.textContent = Apelacion.nombre;
+        Apellido.textContent = Apelacion.apellido;
+        Clase.textContent = Apelacion.Clase_Seleccionada;
+        Motivo.textContent = Apelacion.Razon_Apelacion;
+
+        BotonAprobar.textContent = "Aprobar";
+        BotonRechazar.textContent = "Rechazar";
+
+        BotonAprobar.addEventListener("click", () => {
+            Resolver_Apelacion(Apelacion.id, true);
+        });
+
+        BotonRechazar.addEventListener("click", () => {
+            Resolver_Apelacion(Apelacion.id, false);
+        });
+
+        Tarjeta.append(Nombre, Apellido, Clase, Motivo, BotonAprobar, BotonRechazar);
+
+        Contenedor.appendChild(Tarjeta);
+    });
+};
+
+function Resolver_Apelacion(ID_Apelacion, Aprobada) {
+    const Indice = Apelaciones_Pendientes.findIndex(
+        Apelacion => Apelacion.id === ID_Apelacion
+    );
+
+    // Comprobamos que exista la apelación.
+    if (Indice === -1) {
+        alert("No se encontró la apelación.");
+        return;
+    }
+
+    const Apelacion = Apelaciones_Pendientes[Indice];
+
+    if (Aprobada) {
+        alert("Se aprobó la apelación de " + Apelacion.nombre, " " + Apelacion.apellido);
+        // Aquí iría la lógica específica de aprobación.
+    } else {
+        alert("Se rechazó la apelación de " + Apelacion.nombre, " " + Apelacion.apellido);
+        // Aquí iría la lógica específica de rechazo.
+    }
+
+    // Quitamos la apelación de la lista de pendientes.
+    Apelaciones_Pendientes.splice(Indice, 1);
+
+    // Actualizamos lo que se muestra en pantalla.
+    Mostrar_Apelaciones();
+}
 /////////////////////////////////////////////////////////////////////FUNCIONES DOCENTE//////////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////////////FUNCIONES ADMINISTRADOR//////////////////////////////////////////////////////////
