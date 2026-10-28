@@ -20,7 +20,7 @@
             <p>INGRESE SU CONTRASEÑA: <input id="CDG_Usuario"></p>
 
             <p><button id="Boton_Confirmar_Usuario">INICIAR SESION</button></p>
-
+            <br><br>
             <p><li><button class="Opcion_Volver">VOLVER ATRAS</button></li></p>
             <p id="MensajeIdentidadConfirmada"></p>
         </section>
@@ -31,6 +31,7 @@
             <h1> Que desea hacer?</h1>
             <p><button id="Boton_MarcarPresente_Estudiante">MARCAR PRESENTE</button></p>
             <p><button id="Boton_MandarApelacion_Estudiante">MANDAR APELACION</button></p>
+            <br><br>
             <p><li><button class="Opcion_Volver">VOLVER ATRAS</button></li></p>
             <p><li><button id="Opcion_VolverInicio">VOLVER AL INICIO</button></li></p>
         </section>
@@ -42,9 +43,10 @@
                 <option value="">Seleccione una Opcion</option>
             </select>
             <button id="Boton_MarcarPresente">MARCAR PRESENTE</button>
+            <p id="Mensaje_Asistencia"></p>
+            <br><br>
             <p><li><button class="Opcion_Volver">VOLVER ATRAS</button></li></p>
             <p><li><button id="Opcion_VolverInicio">VOLVER AL INICIO</button></li></p>
-            <p id="Mensaje_Asistencia"></p>
         </section>
 
         <section id ="Apelacion_Estudiante" class="oculto">
@@ -56,9 +58,11 @@
             <br>
             <p>Escriba el motivo de su apelacion: <input id="Razon_Apelacion"></p>
             <button id="Boton_EnviarApelacion">ENVIAR APELACION</button>
+            <p id="Mensaje_Apelacion"></p>
+            <br><br>
             <p><li><button class="Opcion_Volver">VOLVER ATRAS</button></li></p>
             <p><li><button id="Opcion_VolverInicio">VOLVER AL INICIO</button></li></p>
-            <p id="Mensaje_Apelacion"></p>
+            
         </section>
 <!------------------------------------------- Secciones del Estudiante ------------------------------------------->
 
@@ -68,6 +72,7 @@
             <h1>¿Que desea hacer hoy?</h1>
             <p><button id="Boton_AdministrarEstudiantes">ADMINISTRAR ESTUDIANTES</button></p>
             <p><button id="Boton_RevisarApelaciones">VER APELACIONES PENDIENTES</button></p>
+            <br><br>
             <p><li><button class="Opcion_Volver">VOLVER ATRAS</button></li></p>
             <p><li><button id="Opcion_VolverInicio">VOLVER AL INICIO</button></li></p>
         </section>
@@ -87,6 +92,7 @@
             </tbody>
         </table>
         <p>
+            <br><br>
             <button class="Opcion_Volver">VOLVER ATRAS</button>
             <p><li><button id="Opcion_VolverInicio">VOLVER AL INICIO</button></li></p>
         </p>
@@ -104,6 +110,7 @@
                 </select></p>
             <button id="Boton_GuardarCambios_Estudiante">GUARDAR CAMBIOS</button>
             <button id="Boton_EliminarEstudiante_Clase">ELIMINAR DE ESTA CLASE</button>
+            <br><br>
             <p><button class="Opcion_Volver">VOLVER ATRAS</button></p>
             <p><li><button id="Opcion_VolverInicio">VOLVER AL INICIO</button></li></p>
             <p id="Mensaje_ModificarEstudiante"></p>
@@ -112,6 +119,7 @@
         <section id="VerApelaciones_Docente" class="oculto">
             <h1>Seleccione un estudiante</h1>
             <div id="ContenedorApelaciones_Actuales"></div>
+            <br><br>
             <p><button class="Opcion_Volver">VOLVER ATRAS</button></p>
             <p><li><button id="Opcion_VolverInicio">VOLVER AL INICIO</button></li></p>
         </section>
@@ -120,6 +128,126 @@
 <!------------------------------------------- Secciones del Administrador ------------------------------------------->
         <section id="Sesion_Administrador" class="oculto">
             <h2 id="MensajeBienvenida_Administrador"></h2>
+            <h1>¿Que desea hacer hoy?</h1>
+            <p><li><button id="Boton_AdministrarDocentes">ADMINISTRAR DOCENTES</button></li></p>
+            <p><li><button id="Boton_AdministrarClases">ADMINISTRAR CLASES</button></li></p>
+            <br><br>
+            <p><li><button class="Opcion_Volver">VOLVER ATRAS</button></li></p>
+            <p><li><button id="Opcion_VolverInicio">VOLVER AL INICIO</button></li></p>
+        </section>
+
+        <section id="AdministrarDocentes" class="oculto">
+            <h2>Seleccione una Opcion</h2>
+            <p><li><button id="Opcion_AñadirDocente">AÑADIR DOCENTE</button></li></p>
+            <p><li><button id="Opcion_AsignarDocente">ASIGNAR DOCENTE</button></li></p>
+            <p><li><button id="Opcion_ModificarDocente">MODIFICAR INFO DEL DOCENTE</button></li></p>
+            <p><li><button id="Opcion_EliminarDocente">ELIMINAR DOCENTE</button></li></p>
+            <br><br>
+            <p><li><button class="Opcion_Volver">VOLVER ATRAS</button></li></p>
+            <p><li><button id="Opcion_VolverInicio">VOLVER AL INICIO</button></li></p>
+        </section>
+
+        <section id="AñadirDocente_Admin" class="oculto">
+            <h2>A continuacion añada la informacion del docente a ingresar</h2>
+            <p>Nombre<input id="AñadirDocente_Nombre"></p>
+            <p>Apellido<input id="AñadirDocente_Apellido"></p>
+            <p>Edad<input id="AñadirDocente_Edad"></p>
+            <p>Genero<input id="AñadirDocente_Genero"></p>
+            <p>Contraseña<input id="AñadirDocente_Codigo"></p>
+            <p>Email<input id="AñadirDocente_Email"></p>
+            <p><li><button id="RegistrarDocente_Admin">REGISTRAR DOCENTE</button></li></p>
+            <br><br>
+            <p><li><button class="Opcion_Volver">VOLVER ATRAS</button></li></p>
+            <p><li><button id="Opcion_VolverInicio">VOLVER AL INICIO</button></li></p>
+            <p id="ConfirmacionDocenteAñadido"></p>
+        </section>
+
+        <section id="AsignarDocente_Admin" class="oculto">
+            <h2>Ingrese el Id del docente y la clase a asignar</h2>
+            <p>ID Docente<input id="AsignarDocente_ID"></p>
+            <select id="SeleccionarClase_Docente">
+                <option value="">Seleccione una Opcion</option>
+            </select>
+            <p><li><button id="AsignandoDocente_Admin">ASIGNAR DOCENTE</button></li></p>
+            <br><br>
+            <p><li><button class="Opcion_Volver">VOLVER ATRAS</button></li></p>
+            <p><li><button id="Opcion_VolverInicio">VOLVER AL INICIO</button></li></p>
+        </section>
+
+        <section id="ModificarDocente_Admin" class="oculto">
+            <h2>Ingrese el ID del Docente a modificar</h2>
+            <p>ID Docente<input id="EncontrarDocente_ID"></p>
+            
+            <p>Nuevo ID <input id="Nuevo_DocenteID"></p>
+            <p>Nuevo Nombre <input id="Nuevo_DocenteNombre"></p>
+            <p>Nuevo Apellido <input id="Nuevo_DocenteApellido"></p>
+            <p>Nuevo Edad <input id="Nuevo_DocenteEdad"></p>
+            <p>Nuevo Genero <input id="Nuevo_DocenteGenero"></p>
+            <p>Nueva Contraseña <input id="Nuevo_DocenteCodigo"></p>
+            <p>Nuevo Email <input id="Nuevo_DocenteEmail"></p>
+
+            <p><li><button id="DocenteModificar_Admin">MODIFICAR DOCENTE</button></li></p>
+            <br><br>
+            <p><li><button class="Opcion_Volver">VOLVER ATRAS</button></li></p>
+            <p><li><button id="Opcion_VolverInicio">VOLVER AL INICIO</button></li></p>
+        </section>
+
+        <section id="EliminarDocente_Admin" class="oculto">
+            <h2>Ingrese el ID del Docente que desea eliminar</h2>
+            <p>ID del Docente <input id="IDdocente_Eliminar"></p>
+
+            <p><li><button id="EliminandoDocente_Admin">ELIMINAR DOCENTE</button></li></p>
+            <br><br>
+            <p><li><button class="Opcion_Volver">VOLVER ATRAS</button></li></p>
+            <p><li><button id="Opcion_VolverInicio">VOLVER AL INICIO</button></li></p>
+        </section>
+
+        <section id="AdministrarClases" class="oculto">
+            <h2>Seleccione una Opcion</h2>
+            <p><li><button id="Opcion_AñadirClase">AÑADIR CLASE</button></li></p>
+            <p><li><button id="Opcion_ModificarClase">MODIFICAR INFO DE LA CLASE</button></li></p>
+            <p><li><button id="Opcion_RemoverClase">REMOVER CLASE</button></li></p>
+            <br><br>
+            <p><li><button class="Opcion_Volver">VOLVER ATRAS</button></li></p>
+            <p><li><button id="Opcion_VolverInicio">VOLVER AL INICIO</button></li></p>
+        </section>
+
+        <section id="AgregarClase_Admin" class="oculto">
+            <h2>Ingrese la informacion de la clase</h2>
+            <p>Nombre de la Materia <input id="AgregarNombre_Clase"></p>
+            <p>Año <input id="AgregarCiclo_Clase"></p>
+            <select id="SeleccionarDocente_Clase">
+                <option value=""> -- Seleccione uno de los docentes -- </option>
+            </select>
+            <p><li><button id="AgregandoClase_Admin">AÑADIR CLASE</button></li></p>
+            <br><br>
+            <p><li><button class="Opcion_Volver">VOLVER ATRAS</button></li></p>
+            <p><li><button id="Opcion_VolverInicio">VOLVER AL INICIO</button></li></p>
+        </section>
+
+        <section id="ModificarClase_Admin" class="oculto">
+            <h2>Ingrese el ID de la clase</h2>
+            <p>ID Clase <input id="ID_ClaseBuscar"></p>
+            <br>
+            <p>Nuevo ID <input id="NuevoID_Clase"></p>
+            <p>Nueva Materia <input id="NuevaMateria_Clase"></p>
+            <p>Nuevo Ciclo <input id="NuevoCiclo_Clase"></p>
+            <select id="SeleccionarNuevoDocente_Clase">
+                <option value=""> -- Seleccione el nuevo docente -- </option>
+            </select>
+            <br>
+            <p><li><button id="ModificandoClase_Admin">MODIFICAR CLASE</button></li></p>
+            <br><br>
+            <p><li><button class="Opcion_Volver">VOLVER ATRAS</button></li></p>
+            <p><li><button id="Opcion_VolverInicio">VOLVER AL INICIO</button></li></p>
+        </section>
+
+        <section id="RemoverClase_Admin" class="oculto">
+            <h2>Ingrese el ID de la clase a Remover</h2>
+            <p>ID <input id="IDClase_Remover"></p>
+
+            <p><li><button id="RemoviendoClase_Admin">REMOVER CLASE</button></li></p>
+            <br><br>
             <p><li><button class="Opcion_Volver">VOLVER ATRAS</button></li></p>
             <p><li><button id="Opcion_VolverInicio">VOLVER AL INICIO</button></li></p>
         </section>

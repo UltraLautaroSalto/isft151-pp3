@@ -50,3 +50,10 @@ Lo siguiente seria hacer el Inicio de Sesion del docente, junto con una opcion p
 - Se agrego la seccion en la que el docente puede ver las apelaciones que tiene pendiente para responder.
 - se modifico el como se envian apelaciones por parte de los estudiantes
 - Hay un error con el Boton "Boton_VolverInicio" en donde a veces en algunas paginas no funciona
+
+21/10/2026
+- Se agrego la seccion en la que el administrador puede agregar docentes a la base de datos
+
+27/10/2026
+- Se agregaron las funciones faltantes del administrador para manejar a los docentes y las clases.
+- Se llego al final de la etapa de Prototipo (porfin).
