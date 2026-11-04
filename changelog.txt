@@ -57,3 +57,6 @@ Lo siguiente seria hacer el Inicio de Sesion del docente, junto con una opcion p
 27/10/2026
 - Se agregaron las funciones faltantes del administrador para manejar a los docentes y las clases.
 - Se llego al final de la etapa de Prototipo (porfin).
+
+3/11/2026
+- Se separo la logica del JS para que abarque varios archivos y sea más facil ubicar todo.
