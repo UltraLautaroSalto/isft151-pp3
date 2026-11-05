@@ -1,6 +1,6 @@
-# isft151-pp3
+# "AsisteOS"
 
-"AsisteOS"
+isft151-pp3
 (Proyecto de "SISTEMA DE CONTOL DE ASISTENCIAS ESCOLARES")
 
 Los objetivos principales de este proyecto es controlar las asistencias de los estudiantes, permitir que los docentes vean la información completa de dichas asistencias (Incluyendo las faltas o las tardanzas y sus razones) y que los administradores puedan hacer los cambios necesario en cualquier momento de manera sencilla (Ingresar, remover y modificar alumnos y docentes).
