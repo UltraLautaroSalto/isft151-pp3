@@ -1,6 +1,7 @@
 const Pagina_Inicial = document.getElementById("PaginaInicial");
 
 const IniciarSesion_Usuario = document.getElementById("IniciarSesion");
+const Registrar_Usuario = document.getElementById("RegistrarUsuario");
 
 const Sesion_Estudiante = document.getElementById("Sesion_Estudiante");
 const Sesion_Docente = document.getElementById("Sesion_Docente");
@@ -26,6 +27,7 @@ const Boton_Volver = document.querySelectorAll(".Opcion_Volver");
 
 const Secciones = [
     Pagina_Inicial,
+    Registrar_Usuario,
     IniciarSesion_Usuario,
     Sesion_Estudiante,
     Sesion_Docente,
@@ -92,4 +94,4 @@ function VolverAlInicio() {
     Pagina_Inicial.classList.remove("oculto");
 }
 
-export {MostrarSeccion, VolverAlInicio}
+export {MostrarSeccion, VolverAlInicio, Registrar_Usuario}

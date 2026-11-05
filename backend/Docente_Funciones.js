@@ -170,10 +170,8 @@ function Resolver_Apelacion(ID_Apelacion, Aprobada) {
 
     if (Aprobada) {
         alert("Se aprobó la apelación de " + Apelacion.nombre, " " + Apelacion.apellido);
-        // Aquí iría la lógica específica de aprobación.
     } else {
         alert("Se rechazó la apelación de " + Apelacion.nombre, " " + Apelacion.apellido);
-        // Aquí iría la lógica específica de rechazo.
     }
 
     Apelaciones_Pendientes.splice(Indice, 1);

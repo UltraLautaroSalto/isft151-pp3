@@ -60,3 +60,8 @@ Lo siguiente seria hacer el Inicio de Sesion del docente, junto con una opcion p
 
 3/11/2026
 - Se separo la logica del JS para que abarque varios archivos y sea más facil ubicar todo.
+
+5/11/2026
+- A peticion del Docente, se han eliminado los comentarios del HTML que servian para ubicar más claramente a que tipo de usuario pertencian X secciones
+- Se a cambiado el Nombre del Proyecto a "AsisteOS"
+- Se agrego una funcion para que el usuario pueda registrarse en la "base de datos"

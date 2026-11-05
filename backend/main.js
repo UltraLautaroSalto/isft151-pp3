@@ -1,4 +1,6 @@
-const MostrarInicioSesionUsuario = document.getElementById("Boton_Iniciar_Sesion_Usuario");
+const MS_MostrarInicioSesionUsuario = document.getElementById("Boton_Iniciar_Sesion_Usuario");
+const MS_MostrarRegistro = document.getElementById("Boton_Registrarse");
+const Boton_Confirmar_Registro = document.getElementById("Boton_Confirmar_Registro");
 
 const MS_Boton_MarcarPresente_Estudiante = document.getElementById("Boton_MarcarPresente_Estudiante");
 const MS_Boton_MandarApelacion_Estudiante = document.getElementById("Boton_MandarApelacion_Estudiante");
@@ -32,6 +34,14 @@ const RemoviendoClase_Admin = document.getElementById("RemoviendoClase_Admin");
 const NM_Usuario = document.getElementById("NM_Usuario");
 const CDG_Usuario = document.getElementById("CDG_Usuario");
 const Rzn_Apelacion = document.getElementById("Razon_Apelacion");
+
+const R_NOMBRE_Usuario = document.getElementById("R_NOMBRE_Usuario");
+const R_APELLIDO_Usuario = document.getElementById("R_APELLIDO_Usuario");
+const R_EDAD_Usuario = document.getElementById("R_EDAD_Usuario");
+const R_GENERO_Usuario = document.getElementById("R_GENERO_Usuario");
+const R_EMAIL_Usuario = document.getElementById("R_EMAIL_Usuario");
+const R_CODIGO_Usuario = document.getElementById("R_CODIGO_Usuario");
+const R_ROL_Usuario = document.getElementById("R_ROL_Usuario");
 
 const SeleccionarClase_EstudiantePresente = document.getElementById("SeleccionarClase_EstudiantePresente");
 const SeleccionarClase_EstudianteApelacion = document.getElementById("SeleccionarClase_EstudianteApelacion");
@@ -71,8 +81,9 @@ const SeleccionarOpcion_SesionActiva = document.getElementById("SeleccionarOpcio
 
 const OpcionesSesion_Activa = document.getElementById("OpcionesSesion_Activa");
 
-import {MostrarSeccion as MSeccion} from './Secciones.js'
+import {MostrarSeccion as MSeccion, Registrar_Usuario} from './Secciones.js'
 import {MostrarInicioSesionUsuario as ComprobarUsuarioRegistrado} from './InicioDeSesion.js'
+import {Registrando_Usuario as Reg_Usuario} from './Registrarse.js'
 import {Boton_Confirmar_Usuario as BConfirmarUsuario} from './Autentificacion.js'
 
 import {MarcarPresente as MPresente_ALM, EnviarApelacion as EApelacion_ALM} from './Estudiante_funciones.js'
@@ -85,12 +96,20 @@ import {CargarEstudiantesDocente as CEstudiantes_Docente} from './Docente_Funcio
 
 import {SeleccionarOpcion_SesionActiva as SOpcion_SesionActiva} from './SesionActual_Funciones.js'
 
-MostrarInicioSesionUsuario.addEventListener("click", () => {
+MS_MostrarInicioSesionUsuario.addEventListener("click", () => {
     ComprobarUsuarioRegistrado();
+});
+
+MS_MostrarRegistro.addEventListener("click", () => {
+    MSeccion(Registrar_Usuario);
 });
 
 Boton_Confirmar_Usuario.addEventListener("click", () => {
     BConfirmarUsuario(NM_Usuario,CDG_Usuario, Rzn_Apelacion);
+});
+
+Boton_Confirmar_Registro.addEventListener("click", () => {
+    Reg_Usuario(R_NOMBRE_Usuario, R_APELLIDO_Usuario, R_EDAD_Usuario, R_GENERO_Usuario, R_EMAIL_Usuario, R_CODIGO_Usuario, R_ROL_Usuario);
 });
 
 MS_Boton_MarcarPresente_Estudiante.addEventListener("click", () => {
