@@ -2,6 +2,16 @@
     background: rgb(53, 53, 53);
 }
 
+h1 {
+    font-size: 40px;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+h2 {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 30px;
+}
+
 head{
     color: red;
 }
@@ -17,11 +27,37 @@ button {
     color: black;
     margin: 0px auto;
     text-align: center;
+    font-size: 15px;
 }
 
 input {
     background:white;
-    font-family: VCR Mono;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.campo {
+    display: grid;
+    grid-template-columns: 0px 1fr;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 4px;
+    position:relative;
+}
+
+.campo label {
+    text-align: center;
+    width: 1200px;
+}
+
+.campo input,
+.campo select {
+    box-sizing: border-box;
+    width: 30%;
+    padding: 8px;
+    text-align: center;
+    margin: 2px auto;
 }
 
 .oculto{
@@ -30,15 +66,20 @@ input {
 
 select {
     background: white;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 option {
     background: white;
+    font-family: Georgia, "Times New Roman", serif;
 }
 
 table {
-    margin: 0px auto;
+    margin: 20px auto;
     text-align: center;
+    font-size: 20px;
+    inline-size: auto;
+    background-color: darkgrey;
 }
 
 #Sesion_Actual {

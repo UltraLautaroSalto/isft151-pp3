@@ -10,6 +10,31 @@ function Registrando_Usuario(){
     const Nuevo_Codigo = R_CODIGO_Usuario.value;
     const Nuevo_Rol = R_ROL_Usuario.value;
 
+    if(Nuevo_Nombre.trim() === ""){
+        alert("No se a ingresado ningun valor para el nombre, Porfavor asegurese de llenar todos los campos");
+        return;
+    }
+    if(Nuevo_Apellido.trim() === ""){
+        alert("No se a ingresado ningun valor para el apellido, Porfavor asegurese de llenar todos los campos");
+        return;
+    }
+    if(Nueva_Edad.trim() === ""){
+        alert("No se a ingresado ningun valor para el edad, Porfavor asegurese de llenar todos los campos");
+        return;
+    }
+    if(Nuevo_Genero.trim() === ""){
+        alert("No se a seleccionado ningun valor para el genero, Porfavor asegurese de llenar todos los campos")
+        return;
+    }
+    if(Nuevo_Email.trim() === ""){
+        alert("No se a ingresado ningun valor para el Email, Porfavor asegurese de llenar todos los campos");
+        return;
+    }
+    if(Nuevo_Codigo.trim() === ""){
+        alert("No se a ingresado ningun valor para el codigo, Porfavor asegurese de llenar todos los campos");
+        return;
+    }
+
     const UltimoUsuario = Cuentas_Registradas.at(-1);
 
     const Nuevo_ID = UltimoUsuario ? UltimoUsuario.id + 1 : 1;

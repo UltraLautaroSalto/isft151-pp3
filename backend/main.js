@@ -29,7 +29,7 @@ const MS_Opcion_ModificarClase = document.getElementById("Opcion_ModificarClase"
 const MS_Opcion_RemoverClase = document.getElementById("Opcion_RemoverClase");
 const AgregandoClase_Admin = document.getElementById("AgregandoClase_Admin");
 const ModificandoClase_Admin = document.getElementById("ModificandoClase_Admin");
-const RemoviendoClase_Admin = document.getElementById("RemoviendoClase_Admin");
+const RemoviendoClase_Admin = document.getElementById("RemoviendoClase_Admin"); 
 
 const NM_Usuario = document.getElementById("NM_Usuario");
 const CDG_Usuario = document.getElementById("CDG_Usuario");
@@ -77,7 +77,7 @@ const NuevoCiclo_Clase = document.getElementById("NuevoCiclo_Clase");
 
 const IDClase_Remover= document.getElementById("IDClase_Remover");
 
-const SeleccionarOpcion_SesionActiva = document.getElementById("SeleccionarOpcion_SesionActiva");
+const SeleccionarOpcion_SesionActiva = document.getElementById("SeleccionarOpcion_SesionActiva"); 
 
 const OpcionesSesion_Activa = document.getElementById("OpcionesSesion_Activa");
 
@@ -137,9 +137,6 @@ MS_Boton_AdministrarEstudiantes.addEventListener("click", () => {
 
 MS_Boton_RevisarApelaciones.addEventListener("click", () => {
     MSeccion(VerApelaciones_Docente);
-});
-
-VerApelaciones_Docente.addEventListener("click", () =>{
     M_Apelaciones();
 });
 
@@ -154,7 +151,7 @@ MS_Opcion_AñadirDocente.addEventListener("click", () => {
 MS_Opcion_AsignarDocente.addEventListener("click", () => {
     CClases(SeleccionarClase_Docente);
     MSeccion(AsignarDocente_Admin);
-})
+});
 
 MS_Opcion_ModificarDocente.addEventListener("click", () => {
     MSeccion(ModificarDocente_Admin);
@@ -162,7 +159,7 @@ MS_Opcion_ModificarDocente.addEventListener("click", () => {
 
 MS_Opcion_EliminarDocente.addEventListener("click", () => {
     MSeccion(EliminarDocente_Admin);
-})
+});
 
 RegistrarDocente_Admin.addEventListener("click", () => {
     RegDocente_Admin(AñadirDocente_Nombre, AñadirDocente_Apellido, AñadirDocente_Edad, AñadirDocente_Genero, AñadirDocente_Email, AñadirDocente_Codigo);

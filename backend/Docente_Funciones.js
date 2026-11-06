@@ -18,7 +18,6 @@ function CargarEstudiantesDocente() {
     TablaEstudiantes_Docente.innerHTML = "";
 
     const Clase_Docente = ObtenerClaseDocente();
-    //console.log(Clase_Docente);
 
     if (!Clase_Docente) {
         InformacionClase_Docente.innerText ="El docente no tiene ninguna clase asignada.";
@@ -123,7 +122,6 @@ function Mostrar_Apelaciones() {
         return;
     }
 
-    // Recorremos todas las apelaciones.
     Apelaciones_Pendientes.forEach(Apelacion => {
 
         const Tarjeta = document.createElement("div");

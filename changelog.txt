@@ -65,3 +65,8 @@ Lo siguiente seria hacer el Inicio de Sesion del docente, junto con una opcion p
 - A peticion del Docente, se han eliminado los comentarios del HTML que servian para ubicar más claramente a que tipo de usuario pertencian X secciones
 - Se a cambiado el Nombre del Proyecto a "AsisteOS"
 - Se agrego una funcion para que el usuario pueda registrarse en la "base de datos"
+
+5/11/2026 Parte 2
+- Se cambio ligeramente el nombre del proyecto
+- Se a empezado a arreglar la parte visual para dejarlo más "presentable"
+- Se creo la carpeta "media" en donde se almacenara el video de difusion.
