@@ -1,4 +1,4 @@
-# "AsistEOS"
+# "AsistE-OS"
 
 ### isft151-pp3
 (Proyecto de "SISTEMA DE CONTOL DE ASISTENCIAS ESCOLARES")
