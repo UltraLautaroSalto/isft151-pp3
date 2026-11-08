@@ -33,19 +33,19 @@ function Boton_Confirmar_Usuario(NM_Usuario, CDG_Usuario){
     Sesion_Actual.Usuario_Actual = Identificar_US;
 
     if (Identificar_US.rol === "Estudiante") {
-        TextoNombreCuenta_Actual.textContent = `Sesion Actual: ${Sesion_Actual.Usuario_Actual.nombre} ${Sesion_Actual.Usuario_Actual.apellido}`;
+        TextoNombreCuenta_Actual.textContent = `Bienvenido ${Sesion_Actual.Usuario_Actual.nombre} ${Sesion_Actual.Usuario_Actual.apellido}`;
         MSeccion(Sesion_Estudiante);
         MBEstudiante(Identificar_US);
     }
 
     if(Identificar_US.rol === "Docente"){
-        TextoNombreCuenta_Actual.textContent = `Sesion Actual: ${Sesion_Actual.Usuario_Actual.nombre} ${Sesion_Actual.Usuario_Actual.apellido}`;
+        TextoNombreCuenta_Actual.textContent = `Bienvenido: ${Sesion_Actual.Usuario_Actual.nombre} ${Sesion_Actual.Usuario_Actual.apellido}`;
         MSeccion(Sesion_Docente);
         MBDocente(Identificar_US);
     }
 
     if(Identificar_US.rol === "Administrador"){
-        TextoNombreCuenta_Actual.textContent = `Sesion Actual: ${Sesion_Actual.Usuario_Actual.nombre} ${Sesion_Actual.Usuario_Actual.apellido}`;
+        TextoNombreCuenta_Actual.textContent = `Bienvenido: ${Sesion_Actual.Usuario_Actual.nombre} ${Sesion_Actual.Usuario_Actual.apellido}`;
         MSeccion(Sesion_Administrador);
         MBAdmin(Identificar_US);
     }

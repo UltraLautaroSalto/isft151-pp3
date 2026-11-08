@@ -1,0 +1,3 @@
+Para esta version del proyecto, se necesita:
+- Visual Studio Code(de preferencia una version reciente)
+- La extension "Live Server"

@@ -1,6 +1,10 @@
 import {Clases_Actuales, Sesion_Actual, Cuentas_Registradas} from './base_de_datos.js'
 
 function CargarClases(select){
+    if (!select) return;
+
+    select.replaceChildren();
+
     Clases_Actuales.forEach(clase => {
         const opcion = document.createElement("option");
         opcion.value = clase.Materia;

@@ -70,3 +70,7 @@ Lo siguiente seria hacer el Inicio de Sesion del docente, junto con una opcion p
 - Se cambio ligeramente el nombre del proyecto
 - Se a empezado a arreglar la parte visual para dejarlo más "presentable"
 - Se creo la carpeta "media" en donde se almacenara el video de difusion.
+
+8/11/2026
+- Se modifico la parte visual del proyecto, Ahora si esta presentable.
+- Se agrego un documento con el link al video de difusion en la carpeta "media"

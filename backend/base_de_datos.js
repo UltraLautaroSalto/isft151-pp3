@@ -6,9 +6,9 @@ let Cuentas_Registradas = [
     {id: 3, nombre: "Alex", apellido: "Santos", edad: "17", genero: "Sin Identificar", codigo_de_ingreso: "9999", rol: "Estudiante", 
         asistencias:{"Algoritmo y Estructura de Datos 1": "FALSE", "Practicar Profecionalizantes 3": "FALSE", "Matematicas 2": "FALSE"}},
 
-    {id: 4,nombre: "Lance", apellido: "Vanze", edad:"34", genero: "Masculino", codigo_de_ingreso: "VanceLastDance9876", rol: "Docente"},
-    {id: 5,nombre: "Denise", apellido: "Robinson", edad:"45", genero: "Femenino", codigo_de_ingreso: "CJMYLOVE6789", rol: "Docente"},
-    {id: 6,nombre: "Niko", apellido: "Bellic", edad:"54", genero:"Masculino", codigo_de_ingreso: "STIWTDFLTITVWLF", rol: "Docente"},
+    {id: 4,nombre: "Miguel", apellido: "Vanze", edad:"34", genero: "Masculino", codigo_de_ingreso: "VanceLastDance9876", rol: "Docente"},
+    {id: 5,nombre: "Daniela", apellido: "Robinson", edad:"45", genero: "Femenino", codigo_de_ingreso: "CJMYLOVE6789", rol: "Docente"},
+    {id: 6,nombre: "Niko", apellido: "Petrovich", edad:"54", genero:"Masculino", codigo_de_ingreso: "STIWTDFLTITVWLF", rol: "Docente"},
 
     {id: 7,nombre: "Ralph", apellido: "Philips", edad:"53", genero: "Masculino", codigo_de_ingreso: "AM128894", rol: "Administrador"}
 ];

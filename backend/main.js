@@ -8,7 +8,7 @@ const Boton_MarcarPresente = document.getElementById("Boton_MarcarPresente");
 const Boton_EnviarApelacion = document.getElementById("Boton_EnviarApelacion");
 
 const MS_Boton_AdministrarEstudiantes = document.getElementById("Boton_AdministrarEstudiantes");
-const MS_Boton_RevisarApelaciones = document.getElementById("Boton_RevisarApelaciones");
+const MS_Boton_RevisarApelaciones = document.getElementById("Boton_RevisarApelaciones"); 
 const Boton_Confirmar_Usuario = document.getElementById("Boton_Confirmar_Usuario");
 const VerApelaciones_Docente = document.getElementById("VerApelaciones_Docente");
 
@@ -105,7 +105,7 @@ MS_MostrarRegistro.addEventListener("click", () => {
 });
 
 Boton_Confirmar_Usuario.addEventListener("click", () => {
-    BConfirmarUsuario(NM_Usuario,CDG_Usuario, Rzn_Apelacion);
+    BConfirmarUsuario(NM_Usuario,CDG_Usuario);
 });
 
 Boton_Confirmar_Registro.addEventListener("click", () => {
@@ -127,7 +127,7 @@ Boton_MarcarPresente.addEventListener("click", () => {
 });
 
 Boton_EnviarApelacion.addEventListener("click", () => {
-    EApelacion_ALM(SeleccionarClase_EstudianteApelacion, Rzn_Apelacion);
+    EApelacion_ALM(SeleccionarClase_EstudianteApelacion);
 });
 
 MS_Boton_AdministrarEstudiantes.addEventListener("click", () => {
@@ -211,3 +211,5 @@ RemoviendoClase_Admin.addEventListener("click", () => {
 SeleccionarOpcion_SesionActiva.addEventListener("click", () => {
     SOpcion_SesionActiva(OpcionesSesion_Activa);
 });
+
+export {Rzn_Apelacion}

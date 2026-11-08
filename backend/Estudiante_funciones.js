@@ -1,6 +1,7 @@
 const TextoBienvenida_Estudiante = document.getElementById("MensajeBienvenida_Estudiante");
 
 import {Apelaciones_Pendientes, Sesion_Actual} from './base_de_datos.js'
+import {Rzn_Apelacion} from './main.js'
 
 function MostrarBienvenidaEstudiante(){
     TextoBienvenida_Estudiante.innerText =

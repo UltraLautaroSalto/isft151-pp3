@@ -5,6 +5,7 @@
 
     <link rel="stylesheet" href="style.css"/>
     <body id="Cuerpo_Principal">
+    <main class="contenido-principal">
         <section id="PaginaInicial">
             <head>
                 <h1>¡BIENVENIDO USUARIO!</h1>
@@ -126,9 +127,9 @@
 
         <section id="ModificarEstudiante_Docente" class="oculto">
             <h1>Modificar estudiante</h1>
-            <div class="campo"><label>Nombre:<input type="text" id="Modificar_Nombre"></label></div>
-            <div class="campo"><label>Apellido:<input type="text" id="Modificar_Apellido"></label></div>
-            <div class="campo"><label>Edad:<input type="number" id="Modificar_Edad"></label></div>
+            <div class="campo"><label>Nombre:</label><input type="text" id="Modificar_Nombre"></div>
+            <div class="campo"><label>Apellido:</label><input type="text" id="Modificar_Apellido"></div>
+            <div class="campo"><label>Edad:</label><input type="number" id="Modificar_Edad"></div>
             <div class="campo"><label>Asistencia:</label>
                 <select id="Modificar_Asistencia">
                     <option value="TRUE">Presente</option>
@@ -279,18 +280,24 @@
             <p><li><button class="Opcion_Volver">VOLVER ATRAS</button></li></p>
             <button type="button" class="Opcion_VolverInicio">VOLVER AL INICIO</button>
         </section>
+    </main>
 
-
-    <section id="Sesion_Actual">
-        <h3 id="NombreCuenta_Actual"></h3>
+    <header class="barra-superior">
+        <aside id="Sesion_Actual" aria-label="Opciones de la sesión">
+        <h2 id="NombreCuenta_Actual"></h2>
+        <label for="OpcionesSesion_Activa">Opciones de la cuenta</label>
+        <br>
         <select id="OpcionesSesion_Activa">
             <option value="">-Seleccione una Opcion-</option>
             <option value="OpcionesSesion_primera">CAMBIAR CONTRASEÑA</option>
-            <option value="OpcionesSesion_segunda">CERRAR SESION</option>
+            <option value="OpcionesSesion_segunda">CERRAR SESIÓN</option>
             <option value="OpcionesSesion_tercera">ELIMINAR CUENTA</option>
         </select>
-        <p><button id="SeleccionarOpcion_SesionActiva">ELEGIR OPCION</button></p>
-    </section>
+
+        <p><button id="SeleccionarOpcion_SesionActiva" type="button">Elegir opción</button></p>
+        </aside>
+    </header>
+
     </body>
 
     <script type="module" src="../backend/main.js"></script>
